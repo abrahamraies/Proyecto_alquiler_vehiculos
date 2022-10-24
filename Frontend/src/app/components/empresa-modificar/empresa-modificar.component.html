@@ -3,7 +3,7 @@
     <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
     <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Registro de empresa</h3>
     <form (ngSubmit)= "modificarEmpresa()" #alquilerForm = "ngForm">
-      <div class="row" style="text-shadow: 2px 0 #000; color: gold">
+      <div class="row" style="text-shadow: 2px 0 #000; color: gold" *ngIf="empresaUtilizada">
         <div class="col">
           <div class="form-group">
             <label>Nombre: </label>
@@ -139,4 +139,4 @@
       Confirmar modificacion</button>
     </form>
   </div>
-  </header>
+</header>

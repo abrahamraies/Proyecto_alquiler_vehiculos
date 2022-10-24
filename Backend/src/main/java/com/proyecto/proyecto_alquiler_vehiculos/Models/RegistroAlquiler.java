@@ -1,6 +1,6 @@
 package com.proyecto.proyecto_alquiler_vehiculos.models;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,8 +25,8 @@ public class RegistroAlquiler {
     
     private Long idvehiculo;
     private int idcliente;
-    private Date fechainicio;
-    private Date fechafin;
+    private LocalDate fechainicio;
+    private LocalDate fechafin;
     private boolean siniestro;
     private String detsiniestro;
     private float montosin;

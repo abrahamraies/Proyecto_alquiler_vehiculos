@@ -3,6 +3,7 @@ import { VehiculoService } from '../services/vehiculo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Vehiculo,Alquiler } from '../interfaces/interfaces';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -14,8 +15,9 @@ export class RegistrarAlquilerVehiculoComponent implements OnInit {
 
   vehiculos : Vehiculo;
   alquiler : Alquiler = new Alquiler();
+  searchClientId = this.loginService.getIdUser();
 
-  constructor(private vehiculoServicio:VehiculoService, private _route:ActivatedRoute,  private router: Router) { }
+  constructor(private vehiculoServicio:VehiculoService, private _route:ActivatedRoute,  private router: Router, private loginService:AuthService) { }
 
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
@@ -24,13 +26,11 @@ export class RegistrarAlquilerVehiculoComponent implements OnInit {
 
   guardarAlquiler(){
     this.alquiler.idvehiculo = this.vehiculos.idvehiculo;
-
+    this.alquiler.idcliente = this.searchClientId;
     console.log(this.alquiler);
 
-    this.vehiculoServicio.registrarAlquiler(this.alquiler).subscribe({
-      next: (v) => this.deshabilitarVehiculo(this.vehiculos),
-      error: (e) => console.log(e)
-    });
+    this.vehiculoServicio.registrarAlquiler(this.alquiler).subscribe();
+    this.deshabilitarVehiculo(this.alquiler.idvehiculo);
   }
 
   private mostrarVehiculos(cod: string){
@@ -41,10 +41,8 @@ export class RegistrarAlquilerVehiculoComponent implements OnInit {
     })
   }
 
-  deshabilitarVehiculo(vehiculo: Vehiculo){
-    this.vehiculoServicio.deshabilitarVehiculo(vehiculo.idvehiculo).subscribe(dato => {
-      this.vehiculos = dato;
-    });
+  deshabilitarVehiculo(idvehiculo:number){
+    this.vehiculoServicio.deshabilitarVehiculo(idvehiculo).subscribe();
     alert("Su alquiler ha sido confirmado con éxito ");
     let link = ['/vehiculos'];
     this.router.navigate(link);

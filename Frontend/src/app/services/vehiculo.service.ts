@@ -1,5 +1,5 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Alquiler,Vehiculo } from '../interfaces/interfaces';
@@ -35,6 +35,12 @@ export class VehiculoService {
   deshabilitarVehiculo(id:number):Observable<Vehiculo>{
     return this.httpClient.get<Vehiculo>(`${this.baseUrl}/EliminarVehiculo/${id}`);
    }
+
+   //Este metodo actualiza el vehiculo a disponible
+  habilitarVehiculo(id:number):Observable<Vehiculo>{
+    return this.httpClient.get<Vehiculo>(`${this.baseUrl}/HabilitarVehiculo/${id}`);
+   }
+
   //Este metodo registra el alquiler de un vehiculo
    registrarAlquiler(alquiler:Alquiler):Observable<object>{
      return this.httpClient.post(`${this.baseUrl}/RegistrarAlquiler`,alquiler)
@@ -43,4 +49,22 @@ export class VehiculoService {
    crearVehiculo(vehiculo:Vehiculo):Observable<object>{
     return this.httpClient.post(`${this.baseUrl}/RegistrarVehiculo`,vehiculo)
    }
+
+   //Subir una imagen
+   uploadImage(file:File):Observable<HttpEvent<any>>{
+    const formData: FormData = new FormData();
+
+    formData.append("file",file);
+
+    const req = new HttpRequest('POST',`${this.baseUrl}/upload`,formData, {
+      responseType: 'json'
+    });
+    return this.httpClient.request(req);
+   }
+
+   getImage(){
+    return this.httpClient.get(`${this.baseUrl}/files`);
+   }
+
+
 }

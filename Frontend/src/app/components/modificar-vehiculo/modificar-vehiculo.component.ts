@@ -11,10 +11,11 @@ import { VehiculoService } from 'src/app/services/vehiculo.service';
 })
 export class ModificarVehiculoComponent implements OnInit {
 
-  vehiculo : Vehiculo = new Vehiculo();
   vehiculoSeleccionado: Vehiculo;
+  selectedFile: File;
 
-  constructor(private router: Router,private _route:ActivatedRoute,private vehiculoService:VehiculoService,private loginService:AuthService) { }
+
+  constructor(private router: Router,private _route:ActivatedRoute,private vehiculoService:VehiculoService) { }
 
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
@@ -23,16 +24,51 @@ export class ModificarVehiculoComponent implements OnInit {
 
   private obtenerVehiculo(cod: string) {
     var codigo = parseInt(cod);
-    this.vehiculo.idempresa = this.loginService.getIdUser();
     this.vehiculoService.obtenerVehiculo(codigo).subscribe((dato) => {
       this.vehiculoSeleccionado = dato;
     });
   }
 
+  onFileSelected(event: any){
+    this.selectedFile = event.target.files[0];
+
+    this.uploadFile(this.selectedFile);
+  }
+
+  uploadFile(file){
+    this.vehiculoService.uploadImage(file).subscribe((dato => {
+      console.log(dato);
+    }));
+  }
+
   modificarVehiculo(){
-    this.vehiculoService.actualizarVehiculo(this.vehiculo.idvehiculo,this.vehiculo).subscribe();
+    this.vehiculoService.actualizarVehiculo(this.vehiculoSeleccionado.idvehiculo,this.vehiculoSeleccionado).subscribe((dato =>{
+      console.log(dato);
+    }));
 
     alert("Su vehiculo ha sido modificado con exito ");
+    let link = [''];
+    this.router.navigate(link);
+  }
+
+  deshabilitar(){
+    console.log(this.vehiculoSeleccionado);
+    this.vehiculoService.deshabilitarVehiculo(this.vehiculoSeleccionado.idvehiculo).subscribe((dato => {
+      console.log(dato);
+    }));
+
+    alert("Su vehiculo ha sido desahabilitado");
+    let link = [''];
+    this.router.navigate(link);
+  }
+
+  habilitar(){
+    console.log(this.vehiculoSeleccionado);
+    this.vehiculoService.habilitarVehiculo(this.vehiculoSeleccionado.idvehiculo).subscribe((dato => {
+      console.log(dato);
+    }));
+
+    alert("Su vehiculo ha sido habilitado");
     let link = [''];
     this.router.navigate(link);
   }

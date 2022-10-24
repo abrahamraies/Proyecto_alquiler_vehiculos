@@ -9,8 +9,7 @@
           <label>Fecha de Inicio de alquiler: </label>
           <input type="date"
           class="form-control"
-          value="currentDate | date:'dd-MM-yyyy'"
-          min="currentDate | date:'dd-MM-yyyy'"
+          min="currentDate"
           max="2023-01-01"
           id="fecha"
           [(ngModel)] = "alquiler.fechainicio"
@@ -29,8 +28,7 @@
           <label>Fecha de fin de alquiler: </label>
           <input type="date"
           class="form-control"
-          value="currentDate | date:'dd-MM-yyyy'"
-          min="currentDate | date:'dd-MM-yyyy'"
+          min="{{alquiler.fechainicio}}"
           max="2023-01-01"
           id="fecha"
           [(ngModel)] = "alquiler.fechafin"
@@ -48,17 +46,18 @@
       </div>
     </div>
     <h3 class="text-center" style="text-shadow: 2px 0 #000; color: gold">Vehiculo Seleccionado</h3>
-    <div class="row">
+    <div class="row" *ngIf="vehiculos">
       <div class="col">
         <div class="form-group">
-          <label><img src= "{{vehiculos.imagen}}" width="100" height="100"> {{vehiculos.marca}} {{vehiculos.modelo}}</label>
+          <label><img src= "{{vehiculos?.imagen}}" width="100" height="100"> {{vehiculos.marca}} {{vehiculos.modelo}}</label>
         </div>
         <br>
       </div>
     </div>
     <button class="btn btn-success"
-    style="float: right;" [disabled]= "!alquilerForm.form.valid">
+    style="float: right;" [disabled]= "!alquilerForm.form.valid || searchClientId == null">
     Confirmar Alquiler</button>
   </form>
 </div>
+<h6 style="position: absolute; left: 76%; color: black; font-weight: bold;" *ngIf="searchClientId == null">debes estar registrado</h6><h6 style="position: absolute; left: 76%; margin-top: 15px; color: black; font-weight: bold;" *ngIf="searchClientId == null">para alquilar un vehiculo</h6>
 </header>

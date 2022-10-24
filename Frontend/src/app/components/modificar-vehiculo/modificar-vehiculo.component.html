@@ -3,7 +3,7 @@
     <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
     <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Modificación de vehículo</h3>
     <form (ngSubmit)= "modificarVehiculo()" #alquilerForm = "ngForm">
-      <div class="row" style="text-shadow: 2px 0 #000; color: gold">
+      <div class="row" style="text-shadow: 2px 0 #000; color: gold" *ngIf="vehiculoSeleccionado">
         <div class="col">
           <div class="form-group">
             <label>Marca: </label>
@@ -37,8 +37,7 @@
             minlength="2"
             maxlength="20"
             placeholder="Ingresa el modelo"
-            #modelo = "ngModel"
-            >
+            #modelo = "ngModel">
             <div class="text text-danger" *ngIf= "modelo.invalid && (modelo.dirty || modelo.touched)" >
               <div *ngIf= "modelo.hasError('required') ||
               modelo.hasError('minlength') || modelo.hasError('maxlength')">
@@ -70,22 +69,9 @@
           <br>
           <div class="form-group">
             <label>Imagen </label>
-            <input type="url"
-            placeholder="Ingresa la imagen del vehiculo"
-            class="form-control"
-            id="imagen"
-            [(ngModel)] = "vehiculoSeleccionado.imagen"
-            name="imagen"
-            required
-            minlength="8"
-            maxlength="255"
-            #imagen = "ngModel">
-            <div class="text text-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)" >
-              <div *ngIf= "imagen.hasError('required') ||
-              imagen.hasError('minlength') || imagen.hasError('maxlength')">
-                Ingrese una imagen valida
-              </div>
-            </div>
+            <input type="file"
+            (change)="onFileSelected($event)"
+            class="form-control">
           </div>
           <br>
         </div>
@@ -131,21 +117,21 @@
           </div>
           <br>
           <div class="form-group">
-            <label>Transmision </label>
+            <label>Precio: </label>
             <input type="number"
-            placeholder="Ingresa el tipo de transmision"
+            placeholder="Ingresa el precio"
             class="form-control"
-            id="transmision"
-            [(ngModel)] = "vehiculoSeleccionado.transmision"
-            name="transmision"
+            id="precio"
+            [(ngModel)] = "vehiculoSeleccionado.precioalquiler"
+            name="precio"
             required
-            minlength="1"
-            maxlength="1"
-            #transmision = "ngModel">
-            <div class="text text-danger"  *ngIf= "transmision.invalid && (transmision.dirty || transmision.touched)" >
-              <div *ngIf= "transmision.hasError('required') ||
-                transmision.hasError('minlength') || transmision.hasError('maxlength') ">
-                Ingrese una transmision valida
+            minlength="4"
+            maxlength="50"
+            #precio = "ngModel">
+            <div class="text text-danger" *ngIf= "precio.invalid && (precio.dirty || precio.touched)" >
+              <div *ngIf= "precio.hasError('required') ||
+              precio.hasError('minlength') || precio.hasError('maxlength')">
+                Ingrese un precio valido
               </div>
             </div>
           </div>
@@ -170,31 +156,16 @@
             </div>
           </div>
         </div>
-        <div>
-          <div class="form-group" style="margin-bottom:10px ;display: inline-block;">
-            <label>Precio: </label>
-            <input type="number"
-            placeholder="Ingresa el precio"
-            class="form-control"
-            id="precio"
-            [(ngModel)] = "vehiculoSeleccionado.precioalquiler"
-            name="precio"
-            required
-            minlength="4"
-            maxlength="50"
-            #precio = "ngModel">
-            <div class="text text-danger" *ngIf= "precio.invalid && (precio.dirty || precio.touched)" >
-              <div *ngIf= "precio.hasError('required') ||
-              precio.hasError('minlength') || precio.hasError('maxlength')">
-                Ingrese un precio valido
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <button class="btn btn-success"
       style="float: right;" [disabled]= "!alquilerForm.form.valid">
       Confirmar modificacion</button>
+      <button class="btn btn-secondary"
+      style="float: left;" *ngIf="vehiculoSeleccionado && vehiculoSeleccionado.disponible" (click)="deshabilitar()">
+      Deshabilitar vehiculo</button>
+      <button class="btn btn-secondary"
+      style="float: left;" *ngIf="vehiculoSeleccionado && !vehiculoSeleccionado.disponible" (click)="habilitar()">
+      Habilitar vehiculo</button>
     </form>
   </div>
 </header>

@@ -1,8 +1,11 @@
 package com.proyecto.proyecto_alquiler_vehiculos.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +14,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.proyecto.proyecto_alquiler_vehiculos.exceptions.ResourceNotFoundExceptions;
+import com.proyecto.proyecto_alquiler_vehiculos.models.Imagen;
+import com.proyecto.proyecto_alquiler_vehiculos.models.ResponseImagen;
+import com.proyecto.proyecto_alquiler_vehiculos.models.ResponseMensaje;
 import com.proyecto.proyecto_alquiler_vehiculos.models.Vehiculo;
 import com.proyecto.proyecto_alquiler_vehiculos.repository.VehiculoRepository;
+import com.proyecto.proyecto_alquiler_vehiculos.service.ImagenService;
 
 
 @RestController
@@ -26,7 +36,12 @@ public class VehiculoController {
 	@Autowired
 	private VehiculoRepository repositorioV;
 
-	// Este metodo lista todos los vehiculos
+	@Autowired
+  	private ImagenService storageService;
+
+	String imagenid = new String();
+
+	// Este metodo lista todos los vehiculos disponibles
 	@GetMapping("/vehiculos")
 	public List<Vehiculo> ListarVehiculos() {
 
@@ -60,7 +75,7 @@ public class VehiculoController {
 		vehiculo.setCategoria(nuevoVehiculo.getCategoria());
 		vehiculo.setPrecioalquiler(nuevoVehiculo.getPrecioalquiler());
 		vehiculo.setDisponible(nuevoVehiculo.isDisponible());
-		vehiculo.setImagen(nuevoVehiculo.getImagen());
+		vehiculo.setImagen("http://localhost:8080/RentalsVenado/files/"+imagenid);
 
 		Vehiculo vehiculoActualizado = repositorioV.save(vehiculo);
 
@@ -68,8 +83,8 @@ public class VehiculoController {
 	}
 
 	// Este metodo se encarga de deshabilitar un vehiculo
-	@PostMapping("/EliminarVehiculo/{id}")
-	public ResponseEntity<String> EliminarVehiculo(@PathVariable Long id) {
+	@GetMapping("/EliminarVehiculo/{id}")
+	public ResponseEntity<Vehiculo> EliminarVehiculo(@PathVariable Long id) {
 
 		Vehiculo vehiculo = repositorioV.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundExceptions("No existe un vehiculo con el id: " + id));
@@ -78,15 +93,75 @@ public class VehiculoController {
 
 		repositorioV.save(vehiculo);
 
-		return ResponseEntity.ok("Vehiculo eliminado");
+		return ResponseEntity.ok(vehiculo);
+	}
+
+	// Este metodo se encarga de habilitar un vehiculo
+	@GetMapping("/HabilitarVehiculo/{id}")
+	public ResponseEntity<Vehiculo> HabilitarVehiculo(@PathVariable Long id) {
+
+		Vehiculo vehiculo = repositorioV.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundExceptions("No existe un vehiculo con el id: " + id));
+
+		vehiculo.setDisponible(true);
+
+		repositorioV.save(vehiculo);
+
+		return ResponseEntity.ok(vehiculo);
 	}
 
 	// Este metodo se encarga de registrar un nuevo vehiculo
 	@PostMapping("/RegistrarVehiculo")
 	public Vehiculo CrearVehiculo(@RequestBody Vehiculo nuevoVehiculo) {
 		nuevoVehiculo.setDisponible(true);
+		nuevoVehiculo.setImagen("http://localhost:8080/RentalsVenado/files/"+imagenid);
+
 		return repositorioV.save(nuevoVehiculo);
 	}
+
+	//#region Imagen
+	@PostMapping("/upload")
+	public ResponseEntity<ResponseMensaje> uploadFile(@RequestParam("file") MultipartFile file) {
+		String message = "";
+		try {
+		imagenid = storageService.store(file);
+		message = "Upload completed "+ file.getOriginalFilename();
+		return ResponseEntity.status(HttpStatus.OK).body(new ResponseMensaje(message));
+		} catch (Exception e) {
+		message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+		return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMensaje(message));
+		}
+	}
+
+	@GetMapping("/files")
+	public ResponseEntity<List<ResponseImagen>> getListFiles() {
+		List<ResponseImagen> files = storageService.getAllFiles().map(dbFile -> {
+		String fileDownloadUri = ServletUriComponentsBuilder
+			.fromCurrentContextPath()
+			.path("RentalsVenado/files/")
+			.path(dbFile.getIdimagen())
+			.toUriString();
+
+		return new ResponseImagen(
+			dbFile.getName(),
+			fileDownloadUri,
+			dbFile.getType(),
+			dbFile.getData().length);
+		}).collect(Collectors.toList());
+
+		return ResponseEntity.status(HttpStatus.OK).body(files);
+	}
+
+	@GetMapping("/files/{id}")
+	public ResponseEntity<byte[]> getFile(@PathVariable String id) {
+		Imagen fileDB = storageService.getFile(id);
+
+		return ResponseEntity.ok()
+			.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getName() + "\"")
+			.body(fileDB.getData());
+	}
+	//#endregion
+
 
 
 }
