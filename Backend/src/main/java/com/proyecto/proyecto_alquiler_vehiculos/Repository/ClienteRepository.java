@@ -10,6 +10,7 @@ import com.proyecto.proyecto_alquiler_vehiculos.models.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente,Long>{
 
+    // Este metodo se encarga de encontrar a un cliente por su correo
     Optional<Cliente> findByCorreo(String correo);
 
     

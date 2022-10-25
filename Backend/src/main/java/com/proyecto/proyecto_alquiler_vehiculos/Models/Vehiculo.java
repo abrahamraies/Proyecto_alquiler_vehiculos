@@ -28,7 +28,6 @@ public class Vehiculo {
     private int anio;
     private String patente;
     private String tamanio;
-    private boolean transmision;
     private String categoria;
     private Float precioalquiler;
     private boolean disponible;

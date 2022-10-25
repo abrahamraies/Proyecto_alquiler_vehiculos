@@ -71,7 +71,6 @@ public class VehiculoController {
 		vehiculo.setAnio(nuevoVehiculo.getAnio());
 		vehiculo.setPatente(nuevoVehiculo.getPatente());
 		vehiculo.setTamanio(nuevoVehiculo.getTamanio());
-		vehiculo.setTransmision(nuevoVehiculo.isTransmision());
 		vehiculo.setCategoria(nuevoVehiculo.getCategoria());
 		vehiculo.setPrecioalquiler(nuevoVehiculo.getPrecioalquiler());
 		vehiculo.setDisponible(nuevoVehiculo.isDisponible());
@@ -120,6 +119,7 @@ public class VehiculoController {
 	}
 
 	//#region Imagen
+	// Este metodo se encarga de cargar una imagen en su respectiva tabla
 	@PostMapping("/upload")
 	public ResponseEntity<ResponseMensaje> uploadFile(@RequestParam("file") MultipartFile file) {
 		String message = "";
@@ -133,6 +133,7 @@ public class VehiculoController {
 		}
 	}
 
+	// Este metodo se encarga de obtener todas las imagenes
 	@GetMapping("/files")
 	public ResponseEntity<List<ResponseImagen>> getListFiles() {
 		List<ResponseImagen> files = storageService.getAllFiles().map(dbFile -> {
@@ -152,7 +153,8 @@ public class VehiculoController {
 		return ResponseEntity.status(HttpStatus.OK).body(files);
 	}
 
-	@GetMapping("/files/{id}")
+	// Este metodo se encarga de obtener la imagen segun el parámetro enviado
+		@GetMapping("/files/{id}")
 	public ResponseEntity<byte[]> getFile(@PathVariable String id) {
 		Imagen fileDB = storageService.getFile(id);
 

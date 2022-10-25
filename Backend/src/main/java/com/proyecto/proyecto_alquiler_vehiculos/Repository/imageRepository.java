@@ -8,6 +8,6 @@ import com.proyecto.proyecto_alquiler_vehiculos.models.Imagen;
 
 
 @Repository
-public interface imageRepository extends JpaRepository<Imagen,String>{
+public interface ImageRepository extends JpaRepository<Imagen,String>{
     
 }

@@ -51,7 +51,7 @@ public class EmpresaController {
 		return ResponseEntity.ok(empresa);
 	}
 
-	// Este método se encarga de obtener una empresa
+	// Este método se encarga de obtener los vehiculos de una empresa
 	@GetMapping("/ObtenerVehiculos/{id}")
 	public List<Vehiculo> obtenerVehiculos(@PathVariable Long id) {
 
@@ -104,6 +104,7 @@ public class EmpresaController {
 		return ResponseEntity.ok("Empresa eliminada");
 	}
 
+	// Este metodo se encarga de validar e ingresar en la cuenta de una empresa
 	@GetMapping("/loginEmpresa")
 	public ResponseEntity<Empresa> LoginEmpresa(String correo, String pass){
 

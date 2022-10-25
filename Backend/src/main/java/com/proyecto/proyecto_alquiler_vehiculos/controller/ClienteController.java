@@ -65,6 +65,7 @@ public class ClienteController {
 		return ResponseEntity.ok(clienteActualizado);
 	}
 
+	// Este método se encarga de validar e ingresar un cliente
 	@GetMapping("/loginCliente")
 	public ResponseEntity<Cliente> LoginCliente(String correo, String pass){
 

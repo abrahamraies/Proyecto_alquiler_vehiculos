@@ -10,7 +10,6 @@ export class Vehiculo {
   imagen:string;
   patente: string;
   tamanio: string;
-  transmision:boolean;
   categoria: string;
 }
 
