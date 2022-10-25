@@ -1,9 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { VehiculoService } from '../services/vehiculo.service';
+import { VehiculoService } from '../../services/vehiculo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { Vehiculo,Alquiler } from '../interfaces/interfaces';
-import { AuthService } from '../services/auth.service';
+import { Vehiculo,Alquiler } from '../../interfaces/interfaces';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({

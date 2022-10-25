@@ -1,8 +1,8 @@
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { VehiculoService } from '../services/vehiculo.service';
+import { VehiculoService } from '../../services/vehiculo.service';
 import { Router } from '@angular/router';
-import { Vehiculo } from '../interfaces/interfaces';
+import { Vehiculo } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-lista-vehiculos',

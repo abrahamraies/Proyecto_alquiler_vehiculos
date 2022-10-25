@@ -1,7 +1,7 @@
 import { ModificarVehiculoComponent } from './components/modificar-vehiculo/modificar-vehiculo.component';
-import { RegistrarAlquilerVehiculoComponent } from './registrar-alquiler-vehiculo/registrar-alquiler-vehiculo.component';
-import { HomeComponent } from './home/home.component';
-import { ListaVehiculosComponent } from './lista-vehiculos/lista-vehiculos.component';
+import { RegistrarAlquilerVehiculoComponent } from './components/registrar-alquiler-vehiculo/registrar-alquiler-vehiculo.component';
+import { HomeComponent } from './components/home/home.component';
+import { ListaVehiculosComponent } from './components/lista-vehiculos/lista-vehiculos.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
