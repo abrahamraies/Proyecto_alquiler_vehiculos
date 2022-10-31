@@ -132,21 +132,21 @@
           </div>
           <br>
           <div class="form-group">
-            <label>Transmision </label>
+            <label>Precio: </label>
             <input type="number"
-            placeholder="Ingresa el tipo de transmision"
+            placeholder="Ingresa el precio"
             class="form-control"
-            id="transmision"
-            [(ngModel)] = "vehiculo.transmision"
-            name="transmision"
+            id="precio"
+            [(ngModel)] = "vehiculo.precioalquiler"
+            name="precio"
             required
-            minlength="1"
-            maxlength="1"
-            #transmision = "ngModel">
-            <div class="text text-danger"  *ngIf= "transmision.invalid && (transmision.dirty || transmision.touched)" >
-              <div *ngIf= "transmision.hasError('required') ||
-                transmision.hasError('minlength') || transmision.hasError('maxlength') ">
-                Ingrese una transmision valida
+            minlength="4"
+            maxlength="50"
+            #precio = "ngModel">
+            <div class="text text-danger" *ngIf= "precio.invalid && (precio.dirty || precio.touched)" >
+              <div *ngIf= "precio.hasError('required') ||
+              precio.hasError('minlength') || precio.hasError('maxlength')">
+                Ingrese un precio valido
               </div>
             </div>
           </div>
@@ -167,27 +167,6 @@
               <div *ngIf= "categoria.hasError('required') ||
                 categoria.hasError('minlength') || categoria.hasError('maxlength')">
                 Ingrese una categoria valida
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="form-group" style="margin-bottom:10px ;display: inline-block;">
-            <label>Precio: </label>
-            <input type="number"
-            placeholder="Ingresa el precio"
-            class="form-control"
-            id="precio"
-            [(ngModel)] = "vehiculo.precioalquiler"
-            name="precio"
-            required
-            minlength="4"
-            maxlength="50"
-            #precio = "ngModel">
-            <div class="text text-danger" *ngIf= "precio.invalid && (precio.dirty || precio.touched)" >
-              <div *ngIf= "precio.hasError('required') ||
-              precio.hasError('minlength') || precio.hasError('maxlength')">
-                Ingrese un precio valido
               </div>
             </div>
           </div>

@@ -14,7 +14,16 @@
       </tr>
     </thead>
     <tbody class="table-dark align-middle" *ngFor="let vehiculo of vehiculos">
-      <tr *ngIf="vehiculo.disponible">
+      <tr *ngIf="vehiculo.disponible && tipoUsuario() != 2" >
+        <td><img src="{{vehiculo?.imagen}}" width="100" height="100"></td>
+        <td>{{ vehiculo?.marca }}</td>
+        <td>{{ vehiculo?.modelo }}</td>
+        <td>{{ vehiculo?.anio }}</td>
+        <td>${{ vehiculo?.precioalquiler }}</td>
+        <td *ngIf="tipoUsuario() != 2"><button class="btn btn-success" (click)="SeleccionarVehiculo(vehiculo)">Seleccionar</button></td>
+        <td *ngIf="tipoUsuario() == 2"><button class="btn btn-success" (click)="ModificarVehiculo(vehiculo)">Seleccionar</button></td>
+      </tr>
+      <tr *ngIf="tipoUsuario() == 2" >
         <td><img src="{{vehiculo?.imagen}}" width="100" height="100"></td>
         <td>{{ vehiculo?.marca }}</td>
         <td>{{ vehiculo?.modelo }}</td>
