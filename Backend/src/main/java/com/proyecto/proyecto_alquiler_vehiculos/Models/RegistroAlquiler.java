@@ -27,8 +27,5 @@ public class RegistroAlquiler {
     private int idcliente;
     private LocalDate fechainicio;
     private LocalDate fechafin;
-    private boolean siniestro;
-    private String detsiniestro;
-    private float montosin;
 
 }
