@@ -46,6 +46,7 @@ export class VehiculoService {
      return this.httpClient.post(`${this.baseUrl}/RegistrarAlquiler`,alquiler)
    }
 
+   // Este metodo crea el vehiculo
    crearVehiculo(vehiculo:Vehiculo):Observable<object>{
     return this.httpClient.post(`${this.baseUrl}/RegistrarVehiculo`,vehiculo)
    }
@@ -62,6 +63,7 @@ export class VehiculoService {
     return this.httpClient.request(req);
    }
 
+   // Este metodo obtiene las imagenes almacenadas en la base de datos
    getImage(){
     return this.httpClient.get(`${this.baseUrl}/files`);
    }

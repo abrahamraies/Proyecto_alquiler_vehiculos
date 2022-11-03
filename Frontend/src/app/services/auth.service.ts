@@ -31,34 +31,42 @@ export class AuthService {
     return this.httpClient.get(`${this.baseUrl}/empresas/loginEmpresa?correo=${correo}&pass=${pass}`)
   }
 
+  // Este metodo settea el token
   setToken(input:string){
 	  localStorage.setItem("token",input);
   }
 
+  // Este metodo obtiene el token
   getToken():any {
 	  return localStorage.getItem("token");
   }
 
+  // Este metodo settea el id del usuario
   SetIdUser(id:any){
 	  return localStorage.setItem("iduser",id);
   }
 
+  // Este metodo obtiene el id del usuario
   getIdUser():any{
 	  return localStorage.getItem("iduser");
   }
 
+  // Este metodo settea el rol
   setIdRol(id:any){
     return localStorage.setItem("rol",id);
   }
 
+  // Este metodo obtiene el rol
   getIdRol():any{
 	  return localStorage.getItem("rol");
   }
 
+  // Este metodo limpia el localStorage
   clear(){
 	  localStorage.clear();
   }
 
+  // Este metodo valida si el usuario esta logeado o no
   isLogged(){
 	  return localStorage.getItem("token") ? true : false;
   }

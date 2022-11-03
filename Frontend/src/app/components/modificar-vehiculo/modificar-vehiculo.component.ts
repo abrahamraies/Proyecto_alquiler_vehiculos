@@ -61,7 +61,8 @@ export class ModificarVehiculoComponent implements OnInit {
     this.router.navigate(link);
   }
 
-  // Este metodo se encarga de deshabilitar un vehiculo
+  /* Este metodo se encarga de deshabilitar un vehiculo mediante la suscripcion al metodo
+  deshabilitarVehiculo. Luego muestra una alerta informando la modificacion y redigire al usuario al home*/
   deshabilitar(){
     console.log(this.vehiculoSeleccionado);
     this.vehiculoService.deshabilitarVehiculo(this.vehiculoSeleccionado.idvehiculo).subscribe((dato => {
@@ -73,7 +74,8 @@ export class ModificarVehiculoComponent implements OnInit {
     this.router.navigate(link);
   }
 
-  // Este metodo se encarga de habilitar un vehiculo
+  /* Este metodo se encarga de habilitar un vehiculo mediante la suscripcion al metodo
+  habilitarVehiculo. Luego muestra una alerta informando la modificacion y redigire al usuario al home*/
   habilitar(){
     console.log(this.vehiculoSeleccionado);
     this.vehiculoService.habilitarVehiculo(this.vehiculoSeleccionado.idvehiculo).subscribe((dato => {
