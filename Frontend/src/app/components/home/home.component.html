@@ -1,17 +1,20 @@
 <header class="masthead">
-  <div class="container">
-    <div class="masthead-subheading">¡Bienvenidos!</div>
+    <div class="banner">
+    <div class="masthead-subheading" style="margin-top: 2%;">¡Bienvenidos!</div>
+
     <div class="masthead-heading text-uppercase" style="text-shadow: 2px 0 #000">Alquilá tu vehiculo</div>
     <a
       routerLink="vehiculos"
       routerLinkActive="active"
       class="btn btn-primary btn-xl text-uppercase" *ngIf="tipoUsuario() != 2"
+      style="margin-bottom: 5%;"
       >ELEGÍ TU VEHICULO</a
     >
     <a
       routerLink="ingresarvehiculo"
       routerLinkActive="active"
       class="btn btn-primary btn-xl text-uppercase" *ngIf="tipoUsuario() == 2"
+      style="margin-bottom: 5%;"
       >INGRESÁ TU VEHICULO
     </a>
   </div>
