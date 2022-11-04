@@ -11409,7 +11409,6 @@ header.masthead .masthead-subheading {
   font-style:normal;
   line-height: 1.5rem;
   margin-bottom: 25px;
-  background-color: gold;
   display: inline-block;
 
   font-family: "Roboto Slab", -apple-system, BlinkMacSysteFont, "Segoe UI", Roboto,
@@ -11436,7 +11435,7 @@ header.masthead .masthead-heading {
     font-style: normal;
     line-height: 2.25rem;
     margin-bottom: 2rem;
-    
+
   }
   header.masthead .masthead-heading {
     font-size: 4.5rem;
@@ -11771,5 +11770,17 @@ section#contact form#contactForm :-ms-input-placeholder {
 .footer {
   text-align: center;
   font-size: 0.9rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.banner{
+  text-align: center;
+  font-size: 0.9rem;
+  border: 1px solid black;
+  background-color: rgba(128, 128, 128, 0.8);
+  border-radius: 8% ;
+  height: 50%;
+  width: 50%;
+  display: inline-block;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }

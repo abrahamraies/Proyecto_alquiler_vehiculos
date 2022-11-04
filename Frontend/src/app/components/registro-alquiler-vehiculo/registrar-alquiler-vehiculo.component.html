@@ -1,0 +1,63 @@
+<header class="masthead">
+<div class="col-md-6 offset-md-3">
+  <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
+  <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Registro de alquiler</h3>
+  <form (ngSubmit)= "onSubmit()" #alquilerForm = "ngForm">
+    <div class="row" style="text-shadow: 2px 0 #000; color: gold">
+      <div class="col">
+        <div class="form-group">
+          <label>Fecha de Inicio de alquiler: </label>
+          <input type="date"
+          class="form-control"
+          min="currentDate"
+          max="2023-01-01"
+          id="fecha"
+          [(ngModel)] = "alquiler.fechainicio"
+          name="fechainicio"
+          required
+          #fechaInicio = "ngModel">
+          <div class="text text-danger" *ngIf= "fechaInicio.invalid && (fechaInicio.dirty || fechaInicio.touched)" >
+            <div *ngIf= "fechaInicio.hasError('required') ||
+            fechaInicio.hasError('minlength') || fechaInicio.hasError('maxlength')">
+              Ingrese una fecha de inicio de alquiler valida
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label>Fecha de fin de alquiler: </label>
+          <input type="date"
+          class="form-control"
+          min="{{alquiler.fechainicio}}"
+          max="2023-01-01"
+          id="fecha"
+          [(ngModel)] = "alquiler.fechafin"
+          name="fechafin"
+          required
+          #fechafin = "ngModel">
+          <div class="text text-danger" *ngIf= "fechafin.invalid && (fechafin.dirty || fechafin.touched)" >
+            <div *ngIf= "fechafin.hasError('required') ||
+            fechafin.hasError('minlength') || fechafin.hasError('maxlength')">
+              Ingrese una fecha de fin de alquiler valida
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <h3 class="text-center" style="text-shadow: 2px 0 #000; color: gold">Vehiculo Seleccionado</h3>
+    <div class="row" *ngIf="vehiculos">
+      <div class="col">
+        <div class="form-group">
+          <label><img src= "{{vehiculos?.imagen}}" width="100" height="100"> {{vehiculos.marca}} {{vehiculos.modelo}}</label>
+        </div>
+        <br>
+      </div>
+    </div>
+    <button class="btn btn-success"
+    style="float: right;" [disabled]= "!alquilerForm.form.valid || searchClientId == null">
+    Confirmar Alquiler</button>
+  </form>
+</div>
+<h6 style="position: absolute; left: 76%; color: black; font-weight: bold;" *ngIf="searchClientId == null">debes estar registrado</h6><h6 style="position: absolute; left: 76%; margin-top: 15px; color: black; font-weight: bold;" *ngIf="searchClientId == null">para alquilar un vehiculo</h6>
+</header>
