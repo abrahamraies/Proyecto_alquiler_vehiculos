@@ -1,0 +1,142 @@
+<header class="masthead">
+  <div class="col-md-6 offset-md-3">
+    <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
+    <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Registro de empresa</h3>
+    <form (ngSubmit)= "modificarEmpresa()" #alquilerForm = "ngForm">
+      <div class="row" style="text-shadow: 2px 0 #000; color: gold" *ngIf="empresaUtilizada">
+        <div class="col">
+          <div class="form-group">
+            <label>Nombre: </label>
+            <input type="text"
+            class="form-control"
+            id="nombre"
+            [(ngModel)] = "empresaUtilizada.nombre"
+            name="nombre"
+            required
+            minlength="4"
+            maxlength="20"
+            placeholder="Ingresa tu nombre"
+            #nombre = "ngModel"
+            >
+            <div class="text text-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)" >
+              <div *ngIf= "nombre.hasError('required') ||
+               nombre.hasError('minlength') || nombre.hasError('maxlength')">
+                Ingrese un nombre valido
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Apellido: </label>
+            <input type="text"
+            class="form-control"
+            id="apellido"
+            [(ngModel)] = "empresaUtilizada.apellido"
+            name="apellido"
+            required
+            minlength="2"
+            maxlength="20"
+            placeholder="Ingresa tu apellido"
+            #apellido = "ngModel"
+            >
+            <div class="text text-danger" *ngIf= "apellido.invalid && (apellido.dirty || apellido.touched)" >
+              <div *ngIf= "apellido.hasError('required') ||
+               apellido.hasError('minlength') || apellido.hasError('maxlength')">
+                Ingrese un apellido valido
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Razon Social: </label>
+            <input type="text"
+            placeholder="Ingresa la razon social de la empresa"
+            required
+            class="form-control"
+            id="razonsocial"
+            [(ngModel)] = "empresaUtilizada.razonsocial"
+            name="razonsocial"
+            required
+            minlength="8"
+            maxlength="20"
+            #razonsocial = "ngModel">
+            <div class="text text-danger" *ngIf= "razonsocial.invalid && (razonsocial.dirty || razonsocial.touched)" >
+              <div *ngIf= "razonsocial.hasError('required') ||
+              razonsocial.hasError('minlength') || razonsocial.hasError('maxlength')">
+                Ingrese una razon social valida
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label>Cuit/Cuil: </label>
+            <input type="text"
+            placeholder="Ingresa tu cuit/cuil"
+            class="form-control"
+            id="cuit"
+            [(ngModel)] = "empresaUtilizada.cuit"
+            name="cuit"
+            required
+            minlength="8"
+            maxlength="20"
+            #cuit = "ngModel">
+            <div class="text text-danger" *ngIf= "cuit.invalid && (cuit.dirty || cuit.touched)" >
+              <div *ngIf= "cuit.hasError('required') ||
+               cuit.hasError('minlength') || cuit.hasError('maxlength')">
+                Ingrese un numero de cuit/cuil valido valido
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Celular: </label>
+            <input type="tel"
+            placeholder="Ingresa tu celular con codigo de area"
+            class="form-control"
+            id="celular"
+            [(ngModel)] = "empresaUtilizada.celular"
+            name="celular"
+            required
+            minlength="8"
+            maxlength="20"
+            #celular = "ngModel">
+            <div class="text text-danger" *ngIf= "celular.invalid && (celular.dirty || celular.touched)" >
+              <div *ngIf= "celular.hasError('required') ||
+               celular.hasError('minlength') || celular.hasError('maxlength')">
+                Ingrese un numero de celular valido
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Contraseña: </label>
+            <input type="text"
+            placeholder="Ingresa tu contraseña"
+            class="form-control"
+            id="password"
+            [(ngModel)] = "empresaUtilizada.password"
+            name="password"
+            required
+            minlength="4"
+            maxlength="50"
+            #password = "ngModel">
+            <div class="text text-danger" *ngIf= "password.invalid && (password.dirty || password.touched)" >
+              <div *ngIf= "password.hasError('required') ||
+              password.hasError('minlength') || password.hasError('maxlength')">
+                Ingrese una contraseña valida
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div>
+        </div>
+      </div>
+      <button class="btn btn-success"
+      style="float: right;" [disabled]= "!alquilerForm.form.valid">
+      Confirmar modificacion</button>
+    </form>
+  </div>
+</header>

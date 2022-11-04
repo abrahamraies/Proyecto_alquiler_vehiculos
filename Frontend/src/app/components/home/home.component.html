@@ -1,0 +1,124 @@
+<header class="masthead">
+    <div class="banner">
+    <div class="masthead-subheading" style="margin-top: 2%; text-shadow: 2px 0 #000;">¡Bienvenidos!</div>
+
+    <div class="masthead-heading text-uppercase" style="text-shadow: 2px 0 #000">Alquilá tu vehiculo</div>
+    <a
+      routerLink="vehiculos"
+      routerLinkActive="active"
+      class="btn btn-primary btn-xl text-uppercase" *ngIf="tipoUsuario() != 2"
+      style="margin-bottom: 5%;"
+      >ELEGÍ TU VEHICULO</a
+    >
+    <a
+      routerLink="ingresarvehiculo"
+      routerLinkActive="active"
+      class="btn btn-primary btn-xl text-uppercase" *ngIf="tipoUsuario() == 2"
+      style="margin-bottom: 5%;"
+      >INGRESÁ TU VEHICULO
+    </a>
+  </div>
+</header>
+
+<section class="page-section" id="nosotros">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Sobre Nosotros</h2>
+      <h3 class="section-subheading text-muted">"Mi Auto, Tu Auto"</h3>
+    </div>
+    <ul class="timeline">
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/sobre_nosotros_1.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>2020/2021</h4>
+            <h4 class="subheading">Comenzamos Nuestro Emprendimiento</h4>
+          </div>
+          <div class="timeline-body"><p class="text-muted"></p></div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/sobre_nosotros_2.png"
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>Marzo 2021</h4>
+            <h4 class="subheading">Nuestro Primer Cliente</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              Sebastían fue el primero en confiar en nosotros. Gracias a
+              nuestros servicios, él pudo cumplir su sueño de recorrer el sur de
+              la Argentina, abordo de un Toyota Corolla.
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/sobre_nosotros3.png"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>December 2021</h4>
+            <h4 class="subheading">Expandimos Nuestra Flota</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              Gracias a la confianza de nuestros clientes y nuestro compromiso
+              con ellos, se hizo posible la incorporación de una gran variedad
+              de vehiculos a nuestra flota.
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/sobre_nosotros_4.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>Mayo 2022</h4>
+            <h4 class="subheading">Consolidamos Nuestro Negocio</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              Al día de la fecha podemos afirmar, en base nuestra posicion en el mercado,
+              que somos el proveedor de servicios de alquiler de vehiculos
+              con mayor reputacion en la zona.
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <h4 style="color: #000">
+            Se Parte
+            <br />
+            De Nuestra
+            <br />
+            Historia!
+          </h4>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,5 +1,7 @@
 package com.proyecto.proyecto_alquiler_vehiculos.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,23 +16,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Vehiculo {
+public class RegistroAlquiler {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "idvehiculo")
-    private Long idvehiculo;
+    @Column(name= "idregistroalquiler")
+    private Long idregistroalquiler;
     
-    @Column(name = "idempresa")
-    private Long idempresa;
-    private String marca;
-    private String modelo;
-    private int anio;
-    private String patente;
-    private String tamanio;
-    private String categoria;
-    private Float precioalquiler;
-    private boolean disponible;
-    private String imagen;
+    private Long idvehiculo;
+    private int idcliente;
+    private LocalDate fechainicio;
+    private LocalDate fechafin;
 
 }

@@ -1,0 +1,22 @@
+<header class="masthead">
+  <div class="container">
+    <h2 style="text-shadow: 2px 0 #000; color:gold">Ingresar</h2>
+    <form (ngSubmit)= "loginEmpresa()">
+      <div>
+        <input type="email" name="email" placeholder="Email" [(ngModel)]="empresa.correo">
+
+      </div>
+
+      <div style="margin-bottom:10px ;">
+        <input type="password" name="password" placeholder="Contraseña" [(ngModel)]="empresa.password">
+
+      </div>
+
+      <div>
+
+        <button type="submit" class="btn btn-primary" style="margin-right: 10px ;">Ingresar</button>
+        <button type="submit" class="btn btn-secondary" (click)="registro()">Registrarse</button>
+      </div>
+    </form>
+  </div>
+  </header>
