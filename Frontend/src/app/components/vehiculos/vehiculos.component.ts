@@ -33,7 +33,7 @@ export class VehiculosComponent implements OnInit {
   la imagen seleccionada previamente */
   uploadFile(file){
     this.vehiculoService.uploadImage(file).subscribe((dato => {
-      console.log(dato);
+
     }));
   }
 
@@ -44,7 +44,7 @@ export class VehiculosComponent implements OnInit {
   lo redirecciona al home */
   crearVehiculo(){
     this.vehiculo.idempresa = this.loginService.getIdUser();
-    console.log(this.vehiculo);
+
     this.vehiculo.imagen = this.selectedFile.name;
     this.vehiculoService.crearVehiculo(this.vehiculo).subscribe();
 

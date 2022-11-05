@@ -33,7 +33,6 @@ export class RegistrarAlquilerVehiculoComponent implements OnInit {
   guardarAlquiler(){
     this.alquiler.idvehiculo = this.vehiculos.idvehiculo;
     this.alquiler.idcliente = this.searchClientId;
-    console.log(this.alquiler);
 
     this.vehiculoServicio.registrarAlquiler(this.alquiler).subscribe();
     this.deshabilitarVehiculo(this.alquiler.idvehiculo);

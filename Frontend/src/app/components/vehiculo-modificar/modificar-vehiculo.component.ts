@@ -45,7 +45,7 @@ export class ModificarVehiculoComponent implements OnInit {
   // Este metodo se encarga de suscribirse y utilizar el metodo uploadImage del servicio vehiculo
   uploadFile(file){
     this.vehiculoService.uploadImage(file).subscribe((dato => {
-      console.log(dato);
+
     }));
   }
 
@@ -53,7 +53,7 @@ export class ModificarVehiculoComponent implements OnInit {
   muestra una alerta informando la modificacion y redirige al usuario al home*/
   modificarVehiculo(){
     this.vehiculoService.actualizarVehiculo(this.vehiculoSeleccionado.idvehiculo,this.vehiculoSeleccionado).subscribe((dato =>{
-      console.log(dato);
+
     }));
 
     alert("Su vehiculo ha sido modificado con exito ");
@@ -64,9 +64,9 @@ export class ModificarVehiculoComponent implements OnInit {
   /* Este metodo se encarga de deshabilitar un vehiculo mediante la suscripcion al metodo
   deshabilitarVehiculo. Luego muestra una alerta informando la modificacion y redigire al usuario al home*/
   deshabilitar(){
-    console.log(this.vehiculoSeleccionado);
+
     this.vehiculoService.deshabilitarVehiculo(this.vehiculoSeleccionado.idvehiculo).subscribe((dato => {
-      console.log(dato);
+
     }));
 
     alert("Su vehiculo ha sido desahabilitado");
@@ -77,9 +77,9 @@ export class ModificarVehiculoComponent implements OnInit {
   /* Este metodo se encarga de habilitar un vehiculo mediante la suscripcion al metodo
   habilitarVehiculo. Luego muestra una alerta informando la modificacion y redigire al usuario al home*/
   habilitar(){
-    console.log(this.vehiculoSeleccionado);
+
     this.vehiculoService.habilitarVehiculo(this.vehiculoSeleccionado.idvehiculo).subscribe((dato => {
-      console.log(dato);
+
     }));
 
     alert("Su vehiculo ha sido habilitado");
