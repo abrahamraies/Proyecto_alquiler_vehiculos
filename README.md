@@ -8,7 +8,10 @@ A lo largo del año se irá ampliando el desarrollo hasta llegar a convertir el 
 
 Objetivos para la fecha 30/11/22
   - Agregar base de datos
-  - Docker
+  - Crear nuevos metodos en los controladores
+  - Conectar repositorios con la base de datos
+  - Conectar los nuevos metodos al frontend
+  - Mejorar el diseño del frontend
    
 # Pasos para ejecutar el proyecto:
   1. Descargar el proyecto como zip o clonar el repositorio
