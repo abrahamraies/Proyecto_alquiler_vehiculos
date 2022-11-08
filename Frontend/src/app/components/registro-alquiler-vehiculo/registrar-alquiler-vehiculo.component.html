@@ -17,9 +17,9 @@
           name="fechainicio"
           required
           #fechaInicio = "ngModel">
-          <div class="text text-danger" *ngIf= "fechaInicio.invalid && (fechaInicio.dirty || fechaInicio.touched)" >
+          <div class="text text-danger" *ngIf= "fechaInicio.invalid && fechaInicio.touched" >
             <div *ngIf= "fechaInicio.hasError('required') ||
-            fechaInicio.hasError('minlength') || fechaInicio.hasError('maxlength')">
+            fechaInicio.hasError('minlength')">
               Ingrese una fecha de inicio de alquiler valida
             </div>
           </div>
@@ -37,9 +37,9 @@
           name="fechafin"
           required
           #fechafin = "ngModel">
-          <div class="text text-danger" *ngIf= "fechafin.invalid && (fechafin.dirty || fechafin.touched)" >
+          <div class="text text-danger" *ngIf= "fechafin.invalid && fechafin.touched" >
             <div *ngIf= "fechafin.hasError('required') ||
-            fechafin.hasError('minlength') || fechafin.hasError('maxlength')">
+            fechafin.hasError('minlength')">
               Ingrese una fecha de fin de alquiler valida
             </div>
           </div>

@@ -18,10 +18,10 @@
             placeholder="Ingresa tu nombre"
             #nombre = "ngModel"
             >
-            <div class="text text-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)" >
+            <div class="text text-danger" *ngIf= "nombre.invalid && nombre.touched" >
               <div *ngIf= "nombre.hasError('required') ||
-               nombre.hasError('minlength') || nombre.hasError('maxlength')">
-                Ingrese un nombre valido
+               nombre.hasError('minlength')">
+                Ingrese un nombre valido (minimo 4 letras)
               </div>
             </div>
           </div>
@@ -39,10 +39,10 @@
             placeholder="Ingresa tu apellido"
             #apellido = "ngModel"
             >
-            <div class="text text-danger" *ngIf= "apellido.invalid && (apellido.dirty || apellido.touched)" >
+            <div class="text text-danger" *ngIf= "apellido.invalid && apellido.touched" >
               <div *ngIf= "apellido.hasError('required') ||
-               apellido.hasError('minlength') || apellido.hasError('maxlength')">
-                Ingrese un apellido valido
+               apellido.hasError('minlength')">
+                Ingrese un apellido valido (minimo 2 letras)
               </div>
             </div>
           </div>
@@ -57,13 +57,13 @@
             [(ngModel)] = "cliente.dni"
             name="dni"
             required
-            minlength="8"
-            maxlength="20"
+            minlength="7"
+            maxlength="8"
             #dni = "ngModel">
-            <div class="text text-danger" *ngIf= "dni.invalid && (dni.dirty || dni.touched)" >
+            <div class="text text-danger" *ngIf= "dni.invalid && dni.touched" >
               <div *ngIf= "dni.hasError('required') ||
-               dni.hasError('minlength') || dni.hasError('maxlength')">
-                Ingrese un documento de identidad valido
+               dni.hasError('minlength')">
+                Ingrese un documento de identidad valido (minimo 7 numeros)
               </div>
             </div>
           </div>
@@ -77,13 +77,13 @@
             [(ngModel)] = "cliente.cuit"
             name="cuit"
             required
-            minlength="8"
-            maxlength="20"
+            minlength="11"
+            maxlength="13"
             #cuit = "ngModel">
-            <div class="text text-danger" *ngIf= "cuit.invalid && (cuit.dirty || cuit.touched)" >
+            <div class="text text-danger" *ngIf= "cuit.invalid && cuit.touched" >
               <div *ngIf= "cuit.hasError('required') ||
-               cuit.hasError('minlength') || cuit.hasError('maxlength')">
-                Ingrese un numero de cuit/cuil valido valido
+               cuit.hasError('minlength')">
+                Ingrese un numero de cuit/cuil valido valido (minimo 11 numeros)
               </div>
             </div>
           </div>
@@ -100,9 +100,9 @@
             name="fecha"
             required
             #fechaNacimiento = "ngModel">
-            <div class="text text-danger" *ngIf= "fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)" >
+            <div class="text text-danger" *ngIf= "fechaNacimiento.invalid && fechaNacimiento.touched" >
               <div *ngIf= "fechaNacimiento.hasError('required') ||
-              fechaNacimiento.hasError('minlength') || fechaNacimiento.hasError('maxlength')">
+              fechaNacimiento.hasError('minlength')">
                 Ingrese una fecha de nacimiento valida
               </div>
             </div>
@@ -122,10 +122,10 @@
             minlength="8"
             maxlength="20"
             #celular = "ngModel">
-            <div class="text text-danger" *ngIf= "celular.invalid && (celular.dirty || celular.touched)" >
+            <div class="text text-danger" *ngIf= "celular.invalid && celular.touched" >
               <div *ngIf= "celular.hasError('required') ||
-               celular.hasError('minlength') || celular.hasError('maxlength')">
-                Ingrese un numero de celular valido
+               celular.hasError('minlength')">
+                Ingrese un numero de celular valido (minimo 8 numeros)
               </div>
             </div>
           </div>
@@ -142,9 +142,9 @@
             minlength="8"
             maxlength="50"
             #direccion = "ngModel">
-            <div class="text text-danger" *ngIf= "direccion.invalid && (direccion.dirty || direccion.touched)" >
+            <div class="text text-danger" *ngIf= "direccion.invalid && direccion.touched" >
               <div *ngIf= "direccion.hasError('required') ||
-               direccion.hasError('minlength') || direccion.hasError('maxlength')">
+               direccion.hasError('minlength')">
                 Ingrese una direccion valida
               </div>
             </div>
@@ -163,9 +163,9 @@
             minlength="8"
             maxlength="50"
             #email = "ngModel">
-            <div class="text text-danger"  *ngIf= "email.invalid && (email.dirty || email.touched)" >
+            <div class="text text-danger"  *ngIf= "email.invalid && email.touched" >
               <div *ngIf= "email.hasError('required') ||
-               email.hasError('minlength') || email.hasError('maxlength') || email.hasError('pattern')">
+               email.hasError('minlength') || email.hasError('pattern')">
                 Ingrese un correo electronico valido (user@gmail.com)
               </div>
             </div>
@@ -183,10 +183,10 @@
             minlength="4"
             maxlength="50"
             #nacionalidad = "ngModel">
-            <div class="text text-danger" *ngIf= "nacionalidad.invalid && (nacionalidad.dirty || nacionalidad.touched)" >
+            <div class="text text-danger" *ngIf= "nacionalidad.invalid && nacionalidad.touched" >
               <div *ngIf= "nacionalidad.hasError('required') ||
-               nacionalidad.hasError('minlength') || nacionalidad.hasError('maxlength')">
-                Ingrese una nacionalidad valida
+               nacionalidad.hasError('minlength')">
+                Ingrese una nacionalidad valida (minimo 4 letras)
               </div>
             </div>
           </div>
@@ -203,10 +203,10 @@
             minlength="4"
             maxlength="50"
             #codpostal = "ngModel">
-            <div class="text text-danger" *ngIf= "codpostal.invalid && (codpostal.dirty || codpostal.touched)" >
+            <div class="text text-danger" *ngIf= "codpostal.invalid && codpostal.touched" >
               <div *ngIf= "codpostal.hasError('required') ||
-              codpostal.hasError('minlength') || codpostal.hasError('maxlength')">
-                Ingrese un codigo postal valida
+              codpostal.hasError('minlength')">
+                Ingrese un codigo postal valida (minimo 4 numeros/letras)
               </div>
             </div>
           </div>
@@ -224,10 +224,10 @@
             minlength="4"
             maxlength="50"
             #password = "ngModel">
-            <div class="text text-danger" *ngIf= "password.invalid && (password.dirty || password.touched)" >
+            <div class="text text-danger" *ngIf= "password.invalid && password.touched" >
               <div *ngIf= "password.hasError('required') ||
-              password.hasError('minlength') || password.hasError('maxlength')">
-                Ingrese una contraseña valida
+              password.hasError('minlength')">
+                Ingrese una contraseña valida (minimo 4 letras)
               </div>
             </div>
           </div>

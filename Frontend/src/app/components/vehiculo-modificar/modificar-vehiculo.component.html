@@ -18,10 +18,10 @@
             placeholder="Ingresa la marca"
             #marca = "ngModel"
             >
-            <div class="text text-danger" *ngIf= "marca.invalid && (marca.dirty || marca.touched)" >
+            <div class="text text-danger" *ngIf= "marca.invalid && marca.touched" >
               <div *ngIf= "marca.hasError('required') ||
-              marca.hasError('minlength') || marca.hasError('maxlength')">
-                Ingrese una marca valida
+              marca.hasError('minlength')">
+                Ingrese una marca valida (minimo 4 letras)
               </div>
             </div>
           </div>
@@ -38,10 +38,10 @@
             maxlength="20"
             placeholder="Ingresa el modelo"
             #modelo = "ngModel">
-            <div class="text text-danger" *ngIf= "modelo.invalid && (modelo.dirty || modelo.touched)" >
+            <div class="text text-danger" *ngIf= "modelo.invalid && modelo.touched" >
               <div *ngIf= "modelo.hasError('required') ||
-              modelo.hasError('minlength') || modelo.hasError('maxlength')">
-                Ingrese un modelo valido
+              modelo.hasError('minlength')">
+                Ingrese un modelo valido (minimo 2 letras)
               </div>
             </div>
           </div>
@@ -59,10 +59,10 @@
             minlength="4"
             maxlength="4"
             #anio = "ngModel">
-            <div class="text text-danger" *ngIf= "anio.invalid && (anio.dirty || anio.touched)" >
+            <div class="text text-danger" *ngIf= "anio.invalid && anio.touched" >
               <div *ngIf= "anio.hasError('required') ||
-              anio.hasError('minlength') || anio.hasError('maxlength')">
-                Ingrese un documento de identidad valido
+              anio.hasError('minlength')">
+                Ingrese un año valido (4 digitos)
               </div>
             </div>
           </div>
@@ -92,10 +92,10 @@
             minlength="6"
             maxlength="20"
             #patente = "ngModel">
-            <div class="text text-danger" *ngIf= "patente.invalid && (patente.dirty || patente.touched)" >
+            <div class="text text-danger" *ngIf= "patente.invalid && patente.touched" >
               <div *ngIf= "patente.hasError('required') ||
-              patente.hasError('minlength') || patente.hasError('maxlength')">
-                Ingrese un patente valida
+              patente.hasError('minlength')">
+                Ingrese un patente valida (minimo 6 letras/numeros)
               </div>
             </div>
           </div>
@@ -112,10 +112,10 @@
             minlength="4"
             maxlength="50"
             #tamanio = "ngModel">
-            <div class="text text-danger" *ngIf= "tamanio.invalid && (tamanio.dirty || tamanio.touched)" >
+            <div class="text text-danger" *ngIf= "tamanio.invalid && tamanio.touched" >
               <div *ngIf= "tamanio.hasError('required') ||
-                tamanio.hasError('minlength') || tamanio.hasError('maxlength')">
-                Ingrese un tamaño valido
+                tamanio.hasError('minlength')">
+                Ingrese un tamaño valido (minimo 4 letras)
               </div>
             </div>
           </div>
@@ -132,10 +132,10 @@
             minlength="4"
             maxlength="50"
             #precio = "ngModel">
-            <div class="text text-danger" *ngIf= "precio.invalid && (precio.dirty || precio.touched)" >
+            <div class="text text-danger" *ngIf= "precio.invalid && precio.touched" >
               <div *ngIf= "precio.hasError('required') ||
-              precio.hasError('minlength') || precio.hasError('maxlength')">
-                Ingrese un precio valido
+              precio.hasError('minlength')">
+                Ingrese un precio valido (minimo 4 numeros)
               </div>
             </div>
           </div>
@@ -152,10 +152,10 @@
             minlength="4"
             maxlength="50"
             #categoria = "ngModel">
-            <div class="text text-danger" *ngIf= "categoria.invalid && (categoria.dirty || categoria.touched)" >
+            <div class="text text-danger" *ngIf= "categoria.invalid && categoria.touched" >
               <div *ngIf= "categoria.hasError('required') ||
-                categoria.hasError('minlength') || categoria.hasError('maxlength')">
-                Ingrese una categoria valida
+                categoria.hasError('minlength')">
+                Ingrese una categoria valida (minimo 4 letras)
               </div>
             </div>
           </div>

@@ -18,10 +18,10 @@
             placeholder="Ingresa tu nombre"
             #nombre = "ngModel"
             >
-            <div class="text text-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)" >
+            <div class="text text-danger" *ngIf= "nombre.invalid && nombre.touched" >
               <div *ngIf= "nombre.hasError('required') ||
-               nombre.hasError('minlength') || nombre.hasError('maxlength')">
-                Ingrese un nombre valido
+               nombre.hasError('minlength')">
+                Ingrese un nombre valido (minimo 4 letras)
               </div>
             </div>
           </div>
@@ -39,10 +39,10 @@
             placeholder="Ingresa tu apellido"
             #apellido = "ngModel"
             >
-            <div class="text text-danger" *ngIf= "apellido.invalid && (apellido.dirty || apellido.touched)" >
+            <div class="text text-danger" *ngIf= "apellido.invalid && apellido.touched" >
               <div *ngIf= "apellido.hasError('required') ||
-               apellido.hasError('minlength') || apellido.hasError('maxlength')">
-                Ingrese un apellido valido
+               apellido.hasError('minlength')">
+                Ingrese un apellido valido (minimo 2 letras)
               </div>
             </div>
           </div>
@@ -60,10 +60,10 @@
             minlength="8"
             maxlength="20"
             #razonsocial = "ngModel">
-            <div class="text text-danger" *ngIf= "razonsocial.invalid && (razonsocial.dirty || razonsocial.touched)" >
+            <div class="text text-danger" *ngIf= "razonsocial.invalid && razonsocial.touched" >
               <div *ngIf= "razonsocial.hasError('required') ||
-              razonsocial.hasError('minlength') || razonsocial.hasError('maxlength')">
-                Ingrese una razon social valida
+              razonsocial.hasError('minlength')">
+                Ingrese una razon social valida (minimo 8 letras)
               </div>
             </div>
           </div>
@@ -79,13 +79,13 @@
             [(ngModel)] = "empresaUtilizada.cuit"
             name="cuit"
             required
-            minlength="8"
-            maxlength="20"
+            minlength="11"
+            maxlength="13"
             #cuit = "ngModel">
-            <div class="text text-danger" *ngIf= "cuit.invalid && (cuit.dirty || cuit.touched)" >
+            <div class="text text-danger" *ngIf= "cuit.invalid && cuit.touched" >
               <div *ngIf= "cuit.hasError('required') ||
-               cuit.hasError('minlength') || cuit.hasError('maxlength')">
-                Ingrese un numero de cuit/cuil valido valido
+               cuit.hasError('minlength')">
+                Ingrese un numero de cuit/cuil valido valido (minimo 11 numeros)
               </div>
             </div>
           </div>
@@ -102,10 +102,10 @@
             minlength="8"
             maxlength="20"
             #celular = "ngModel">
-            <div class="text text-danger" *ngIf= "celular.invalid && (celular.dirty || celular.touched)" >
+            <div class="text text-danger" *ngIf= "celular.invalid && celular.touched" >
               <div *ngIf= "celular.hasError('required') ||
-               celular.hasError('minlength') || celular.hasError('maxlength')">
-                Ingrese un numero de celular valido
+               celular.hasError('minlength')">
+                Ingrese un numero de celular valido (minimo 8 numeros)
               </div>
             </div>
           </div>
@@ -122,10 +122,10 @@
             minlength="4"
             maxlength="50"
             #password = "ngModel">
-            <div class="text text-danger" *ngIf= "password.invalid && (password.dirty || password.touched)" >
+            <div class="text text-danger" *ngIf= "password.invalid && password.touched" >
               <div *ngIf= "password.hasError('required') ||
-              password.hasError('minlength') || password.hasError('maxlength')">
-                Ingrese una contraseña valida
+              password.hasError('minlength')">
+                Ingrese una contraseña valida (minimo 4 letras/numeros)
               </div>
             </div>
           </div>
