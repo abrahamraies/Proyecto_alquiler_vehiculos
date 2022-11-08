@@ -1,6 +1,7 @@
 <header class="masthead">
   <div class="container">
-    <h2 style="text-shadow: 2px 0 #000; color:gold">Ingresar</h2>
+    <div class="banner" style="width: 22%;">
+    <h2 style="color:gold; margin-top: 2%; text-shadow: 2px 0 #000;">Ingresar</h2>
     <form (ngSubmit)= "loginCliente()">
       <div>
         <input type="email" name="email" placeholder="Email" [(ngModel)]="cliente.correo">
@@ -12,11 +13,12 @@
 
       </div>
 
-      <div>
+      <div style="margin-bottom: 4%; ">
 
         <button type="submit" class="btn btn-primary" style="margin-right: 10px ;">Ingresar</button>
         <button type="submit" class="btn btn-secondary" (click)="registro()">Registrarse</button>
       </div>
     </form>
+  </div>
   </div>
   </header>

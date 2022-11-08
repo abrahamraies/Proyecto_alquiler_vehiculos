@@ -1,5 +1,5 @@
 <header class="masthead">
-<div class="col-md-6 offset-md-3">
+<div class="banner">
   <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
   <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Registro de alquiler</h3>
   <form (ngSubmit)= "onSubmit()" #alquilerForm = "ngForm">
@@ -8,6 +8,7 @@
         <div class="form-group">
           <label>Fecha de Inicio de alquiler: </label>
           <input type="date"
+          style="width: 30%; margin-left:auto; margin-right: auto;"
           class="form-control"
           min="currentDate"
           max="2023-01-01"
@@ -27,6 +28,7 @@
         <div class="form-group">
           <label>Fecha de fin de alquiler: </label>
           <input type="date"
+          style="width: 30%; margin-left:auto; margin-right: auto;"
           class="form-control"
           min="{{alquiler.fechainicio}}"
           max="2023-01-01"
@@ -55,9 +57,8 @@
       </div>
     </div>
     <button class="btn btn-success"
-    style="float: right;" [disabled]= "!alquilerForm.form.valid || searchClientId == null">
+    style="float: right; margin-bottom: 2%; margin-right: 4%;" [disabled]= "!alquilerForm.form.valid || searchClientId == null">
     Confirmar Alquiler</button>
   </form>
 </div>
-<h6 style="position: absolute; left: 76%; color: black; font-weight: bold;" *ngIf="searchClientId == null">debes estar registrado</h6><h6 style="position: absolute; left: 76%; margin-top: 15px; color: black; font-weight: bold;" *ngIf="searchClientId == null">para alquilar un vehiculo</h6>
 </header>

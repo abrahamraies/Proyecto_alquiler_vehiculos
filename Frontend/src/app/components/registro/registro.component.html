@@ -1,8 +1,8 @@
 <header class="masthead">
-  <div class="col-md-6 offset-md-3">
+  <div class="banner">
     <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
     <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Registro de cliente</h3>
-    <form (ngSubmit)= "crearCliente()" #alquilerForm = "ngForm">
+    <form (ngSubmit)= "crearCliente()" #alquilerForm = "ngForm" style="margin-left:2%; margin-right: 2%;">
       <div class="row" style="text-shadow: 2px 0 #000; color: gold">
         <div class="col">
           <div class="form-group">
@@ -234,7 +234,7 @@
         </div>
       </div>
       <button class="btn btn-success"
-      style="float: right;" [disabled]= "!alquilerForm.form.valid">
+      style="float:right; margin-right: 4%; margin-bottom: 2%;" [disabled]= "!alquilerForm.form.valid">
       Confirmar registro</button>
     </form>
   </div>

@@ -1,8 +1,8 @@
 <header class="masthead">
-  <div class="col-md-6 offset-md-3">
+  <div class="banner">
     <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
     <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Modificación de vehículo</h3>
-    <form (ngSubmit)= "modificarVehiculo()" #alquilerForm = "ngForm">
+    <form (ngSubmit)= "modificarVehiculo()" #alquilerForm = "ngForm" style="margin-left: 2%; margin-right: 2%;">
       <div class="row" style="text-shadow: 2px 0 #000; color: gold" *ngIf="vehiculoSeleccionado">
         <div class="col">
           <div class="form-group">
@@ -162,13 +162,13 @@
         </div>
       </div>
       <button class="btn btn-success"
-      style="float: right;" [disabled]= "!alquilerForm.form.valid">
+      style="float: right; margin-bottom: 2%; margin-right: 4%;" [disabled]= "!alquilerForm.form.valid">
       Confirmar modificacion</button>
       <button class="btn btn-secondary"
-      style="float: left;" *ngIf="vehiculoSeleccionado && vehiculoSeleccionado.disponible" (click)="deshabilitar()">
+      style="float: left; margin-bottom: 2%; margin-left: 4%;" *ngIf="vehiculoSeleccionado && vehiculoSeleccionado.disponible" (click)="deshabilitar()">
       Deshabilitar vehiculo</button>
       <button class="btn btn-secondary"
-      style="float: left;" *ngIf="vehiculoSeleccionado && !vehiculoSeleccionado.disponible" (click)="habilitar()">
+      style="float: left; margin-bottom: 2%; margin-left: 4%;" *ngIf="vehiculoSeleccionado && !vehiculoSeleccionado.disponible" (click)="habilitar()">
       Habilitar vehiculo</button>
     </form>
   </div>

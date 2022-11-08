@@ -24,7 +24,10 @@ export class RegistrarAlquilerVehiculoComponent implements OnInit {
   // Obtenemos el parametro id enviado a la pestaña. Luego se lo enviamos al metodo mostrarVehiculos
   ngOnInit(): void {
     let id = this._route.snapshot.paramMap.get('id');
-    this.mostrarVehiculos(id!)
+    this.mostrarVehiculos(id!);
+    if(this.loginService.getIdUser() == null || this.loginService.getIdUser() == ""){
+      alert("El usuario debe estar registrado para realizar un alquiler")
+    }
   }
 
   /* Este metodo se encarga de instanciar los atributos idvehiculo e idcliente de la interfaz alquiler
