@@ -2,6 +2,7 @@ import { Empresa } from './../../interfaces/interfaces';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-login-empresa',
@@ -27,8 +28,8 @@ export class LoginEmpresaComponent implements OnInit {
   loginEmpresa(){
     let link = [''];
     this.loginService.loginEmpresa(this.empresa.correo,this.empresa.password).subscribe({
-      next: (v:any) => {alert("Bienvenido!"),this.router.navigate(link),this.loginService.setToken(v.password),this.loginService.SetIdUser(v.idempresa),this.loginService.setIdRol(v.rol)},
-      error: (e:any) => {alert("El correo electronico ingresado o la contraseña no son correctos")}
+      next: (v:any) => {swal("Bienvenido!", "", "success"),this.router.navigate(link),this.loginService.setToken(v.password),this.loginService.SetIdUser(v.idempresa),this.loginService.setIdRol(v.rol)},
+      error: (e:any) => {swal("Error!", "El correo electronico o la contraseña ingresada no son correctos", "error")}
     });
 
   }

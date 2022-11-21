@@ -2,6 +2,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from 'src/app/interfaces/interfaces';
 import { EmpresaService } from 'src/app/services/empresa.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-empresa-modificar',
@@ -36,7 +37,7 @@ export class EmpresaModificarComponent implements OnInit {
   modificarEmpresa(){
     this.empresaService.actualizarEmpresa(this.empresaUtilizada.idempresa,this.empresaUtilizada).subscribe();
 
-    alert("Tus datos han sido modificados con exito!");
+    swal("Tu empresa ha sido modificada con exito!", "", "success");
   }
 
 }

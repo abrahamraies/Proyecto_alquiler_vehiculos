@@ -2,6 +2,7 @@ import { Cliente } from './../../interfaces/interfaces';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-login',
@@ -26,8 +27,8 @@ export class LoginComponent implements OnInit {
   loginCliente(){
     let link = [''];
     this.loginService.loginCliente(this.cliente.correo,this.cliente.password).subscribe({
-      next: (v:any) => {alert("Bienvenido!"),this.router.navigate(link),this.loginService.setToken(v.password),this.loginService.SetIdUser(v.idcliente),this.loginService.setIdRol(v.rol)},
-      error: (e:any) => {alert("El correo electronico ingresado o la contraseña no son correctos")}
+      next: (v:any) => {swal("Bienvenido!", "", "success"),this.router.navigate(link),this.loginService.setToken(v.password),this.loginService.SetIdUser(v.idcliente),this.loginService.setIdRol(v.rol)},
+      error: (e:any) => {swal("Error!", "El correo electronico ingresado o la contraseña no coinciden", "error")}
     });
 }
 

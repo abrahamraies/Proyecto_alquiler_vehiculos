@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Vehiculo,Alquiler } from '../../interfaces/interfaces';
 import { AuthService } from '../../services/auth.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class RegistrarAlquilerVehiculoComponent implements OnInit {
     let id = this._route.snapshot.paramMap.get('id');
     this.mostrarVehiculos(id!);
     if(this.loginService.getIdUser() == null || this.loginService.getIdUser() == ""){
-      alert("El usuario debe estar registrado para realizar un alquiler")
+      swal("Advertencia!", "Debes estar registrado para realizar el alquiler de un vehiculo!", "info");
     }
   }
 
@@ -55,7 +56,7 @@ export class RegistrarAlquilerVehiculoComponent implements OnInit {
   deshabilitarVehiculo. Luego, redirecciona al usuario a la lista de vehiculos */
   deshabilitarVehiculo(idvehiculo:number){
     this.vehiculoServicio.deshabilitarVehiculo(idvehiculo).subscribe();
-    alert("Su alquiler ha sido confirmado con éxito ");
+    swal("Felicitaciones", "Su alquiler ha sido confirmado con exito!", "success");
     let link = ['/vehiculos'];
     this.router.navigate(link);
   }
