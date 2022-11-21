@@ -7,7 +7,7 @@ import { Cliente, Empresa } from '../interfaces/interfaces';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = "http://localhost:8080/RentalsVenado";
+  private baseUrl = "http://localhost:18080/RentalsVenado";
 
   constructor(private httpClient : HttpClient) { }
 

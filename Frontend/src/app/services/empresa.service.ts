@@ -8,7 +8,7 @@ import { Empresa } from '../interfaces/interfaces';
 })
 export class EmpresaService {
   //URL backend
-  private baseUrl = "http://localhost:8080/RentalsVenado";
+  private baseUrl = "http://localhost:18080/RentalsVenado";
 
   constructor(private httpClient : HttpClient) { }
 
