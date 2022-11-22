@@ -2,7 +2,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from 'src/app/interfaces/interfaces';
 import { EmpresaService } from 'src/app/services/empresa.service';
-import swal from 'sweetalert';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-empresa-modificar',
@@ -37,7 +37,7 @@ export class EmpresaModificarComponent implements OnInit {
   modificarEmpresa(){
     this.empresaService.actualizarEmpresa(this.empresaUtilizada.idempresa,this.empresaUtilizada).subscribe();
 
-    swal("Tu empresa ha sido modificada con exito!", "", "success");
+    swal.fire("Tu empresa ha sido modificada con exito!", "", "success");
   }
 
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vehiculo } from 'src/app/interfaces/interfaces';
 import { VehiculoService } from 'src/app/services/vehiculo.service';
-import swal from 'sweetalert';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modificar-vehiculo',
@@ -56,7 +56,7 @@ export class ModificarVehiculoComponent implements OnInit {
 
     }));
 
-    swal("Su vehiculo ha sido modificado con exito", "", "success");
+    swal.fire("Su vehiculo ha sido modificado con exito", "", "success");
     let link = [''];
     this.router.navigate(link);
   }
@@ -69,7 +69,7 @@ export class ModificarVehiculoComponent implements OnInit {
 
     }));
 
-    swal("Su vehiculo ha sido deshabilitado con exito", "", "info");
+    swal.fire("Su vehiculo ha sido deshabilitado con exito", "", "info");
     let link = [''];
     this.router.navigate(link);
   }
@@ -82,7 +82,7 @@ export class ModificarVehiculoComponent implements OnInit {
 
     }));
 
-    swal("Su vehiculo ha sido habilitado con exito", "", "success");
+    swal.fire("Su vehiculo ha sido habilitado con exito", "", "success");
     let link = [''];
     this.router.navigate(link);
   }

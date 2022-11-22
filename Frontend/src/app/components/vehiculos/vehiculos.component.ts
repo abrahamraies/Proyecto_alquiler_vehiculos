@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Vehiculo } from 'src/app/interfaces/interfaces';
 import { VehiculoService } from 'src/app/services/vehiculo.service';
-import swal from 'sweetalert';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-vehiculos',
@@ -49,7 +49,7 @@ export class VehiculosComponent implements OnInit {
     this.vehiculo.imagen = this.selectedFile.name;
     this.vehiculoService.crearVehiculo(this.vehiculo).subscribe();
 
-    swal("Su vehiculo ha sido registrado con exito", "", "success");
+    swal.fire("Su vehiculo ha sido registrado con exito", "", "success");
     let link = [''];
     this.router.navigate(link);
   }

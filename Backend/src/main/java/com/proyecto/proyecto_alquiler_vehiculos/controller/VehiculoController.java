@@ -30,7 +30,7 @@ import com.proyecto.proyecto_alquiler_vehiculos.service.ImagenService;
 
 @RestController
 @RequestMapping("/RentalsVenado")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:14200")
 public class VehiculoController {
 
 	@Autowired
@@ -74,7 +74,7 @@ public class VehiculoController {
 		vehiculo.setCategoria(nuevoVehiculo.getCategoria());
 		vehiculo.setPrecioalquiler(nuevoVehiculo.getPrecioalquiler());
 		vehiculo.setDisponible(nuevoVehiculo.isDisponible());
-		vehiculo.setImagen("http://localhost:8080/RentalsVenado/files/"+imagenid);
+		vehiculo.setImagen("http://localhost:18080/RentalsVenado/files/"+imagenid);
 
 		Vehiculo vehiculoActualizado = repositorioV.save(vehiculo);
 
@@ -113,7 +113,7 @@ public class VehiculoController {
 	@PostMapping("/RegistrarVehiculo")
 	public Vehiculo CrearVehiculo(@RequestBody Vehiculo nuevoVehiculo) {
 		nuevoVehiculo.setDisponible(true);
-		nuevoVehiculo.setImagen("http://localhost:8080/RentalsVenado/files/"+imagenid);
+		nuevoVehiculo.setImagen("http://localhost:18080/RentalsVenado/files/"+imagenid);
 
 		return repositorioV.save(nuevoVehiculo);
 	}

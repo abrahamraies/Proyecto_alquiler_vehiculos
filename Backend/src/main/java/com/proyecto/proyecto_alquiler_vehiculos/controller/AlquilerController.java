@@ -14,7 +14,7 @@ import com.proyecto.proyecto_alquiler_vehiculos.repository.AlquilerRepository;
 
 @RestController
 @RequestMapping("/RentalsVenado")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:14200")
 public class AlquilerController {
 
 	@Autowired

@@ -2,7 +2,7 @@ import { Cliente } from './../../interfaces/interfaces';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import swal from 'sweetalert';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-registro',
@@ -28,8 +28,8 @@ export class RegistroComponent implements OnInit {
 
     let link = [''];
     this.loginService.loginCliente(this.cliente.correo,this.cliente.password).subscribe({
-      next: (v:any) => {swal("Bienvenido!", "Su registro ha sido completado con exito!", "success"),this.router.navigate(link),this.loginService.setToken(v.password),this.loginService.SetIdUser(v.idcliente),this.loginService.setIdRol(v.rol)},
-      error: (e:any) => {swal("Error!", "Ha ocurrido un error", "error")}
+      next: (v:any) => {swal.fire("Bienvenido!", "Su registro ha sido completado con exito!", "success"),this.router.navigate(link),this.loginService.setToken(v.password),this.loginService.SetIdUser(v.idcliente),this.loginService.setIdRol(v.rol)},
+      error: (e:any) => {swal.fire("Error!", "Ha ocurrido un error", "error")}
     });
 
   }

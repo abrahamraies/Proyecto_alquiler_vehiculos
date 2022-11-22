@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Empresa } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
-import swal from 'sweetalert';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-regitro-empresa',
@@ -28,8 +28,8 @@ export class RegitroEmpresaComponent implements OnInit {
 
     let link = [''];
     this.loginService.loginEmpresa(this.empresa.correo,this.empresa.password).subscribe({
-      next: (v:any) => {swal("Bienvenido!", "", "success"),this.router.navigate(link),this.loginService.setToken(v.password),this.loginService.SetIdUser(v.idempresa),this.loginService.setIdRol(v.rol)},
-      error: (e:any) => {swal("Error!", "El correo electronico ingresado o la contrasela no son correctos!", "error");}
+      next: (v:any) => {swal.fire("Bienvenido!", "", "success"),this.router.navigate(link),this.loginService.setToken(v.password),this.loginService.SetIdUser(v.idempresa),this.loginService.setIdRol(v.rol)},
+      error: (e:any) => {swal.fire("Error!", "El correo electronico ingresado o la contrasela no son correctos!", "error");}
     });
   }
 }
