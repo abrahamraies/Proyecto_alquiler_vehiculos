@@ -1,8 +1,13 @@
 # Proyecto_alquiler_vehiculos
 
-Se basa en un proyecto como el nombre lo indica de alquiler de vehiculos. Desarrollado con Spring Boot en el lado del backend y Angular en la parte del Frontend.
+Se basa en un proyecto de alquiler de vehiculos. 
+Descripcion: Existen 2 usuarios posibles:
+  Usuario 1: Cientes que quieren alquilar un vehiculo.
+  Usuario 2: Cliente que desea poner sus vehiculos en alquiler. Puede modificar sus datos personales y agregar/modificar los datos de los vehiculos.
+  
+Cada usuario tiene su propia seccion, y en caso de ser un usuario de tipo 2, debe estar habilitado.
 
-El proyecto se inicio en el mes de marzo del año 2022, junto con mi compañero facultativo Leonardo Allegrini.
+Iniciamos el desarrollo en el mes de marzo del año 2022, junto con mi compañero facultativo Leonardo Allegrini.El mismo está desarrollado con Spring Boot en el lado del backend y Angular en la parte del Frontend. 
 
 
 Desarrollos
