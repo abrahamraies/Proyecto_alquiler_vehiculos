@@ -1,6 +1,7 @@
 # Proyecto_alquiler_vehiculos
 
-Se basa en un proyecto de alquiler de vehiculos. 
+Se basa en un proyecto de alquiler de vehiculos.
+
 Descripcion: Existen 2 usuarios posibles:
   Usuario 1: Cientes que quieren alquilar un vehiculo.
   Usuario 2: Cliente que desea poner sus vehiculos en alquiler. Puede modificar sus datos personales y agregar/modificar los datos de los vehiculos.
