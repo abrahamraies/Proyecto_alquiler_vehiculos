@@ -4,12 +4,19 @@ Se basa en un proyecto como el nombre lo indica de alquiler de vehiculos. Desarr
 
 El proyecto se inicio en el mes de marzo del año 2022, junto con mi compañero facultativo Leonardo Allegrini.
 
-A lo largo del año se irá ampliando el desarrollo hasta llegar a convertir el proyecto en un producto comerciable.
 
-Objetivos para la fecha 30/11/22
-  - Agregar base de datos
-  - Crear nuevos metodos en los controladores
-  - Conectar repositorios con la base de datos
-  - Conectar los nuevos metodos al frontend
-  - Mejorar el diseño del frontend
-  - Agregar Docker
+Desarrollos
+  - Creacion documento tecnico (diagramas, modelo de clases, casos de uso).
+  - Creacion backend con spring boot.
+  - Creacion arquitectura, controladores, modelos, servicios, repositorios.
+  - Creacion base de datos.
+  - Agregar base de datos al backend.
+  - Crear nuevos metodos en los controladores.
+  - Creacion frontend con Angular.
+  - Creacion arquitectura, componentes, interfaces, servicios.
+  - Conectar servicios de frontend con endpoint del backend.
+  - Mejorar el diseño del frontend.
+  - Test desarrollo.
+  - Agregar Docker.
+  
+  
