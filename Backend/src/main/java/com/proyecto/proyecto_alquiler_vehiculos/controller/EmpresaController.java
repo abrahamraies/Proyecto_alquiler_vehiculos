@@ -2,11 +2,11 @@ package com.proyecto.proyecto_alquiler_vehiculos.controller;
 
 import java.util.List;
 
-import com.proyecto.proyecto_alquiler_vehiculos.repository.EmpresaRepository;
-import com.proyecto.proyecto_alquiler_vehiculos.repository.VehiculoRepository;
+import com.proyecto.proyecto_alquiler_vehiculos.Repository.EmpresaRepository;
+import com.proyecto.proyecto_alquiler_vehiculos.Repository.VehiculoRepository;
 import com.proyecto.proyecto_alquiler_vehiculos.exceptions.ResourceNotFoundExceptions;
-import com.proyecto.proyecto_alquiler_vehiculos.models.Empresa;
-import com.proyecto.proyecto_alquiler_vehiculos.models.Vehiculo;
+import com.proyecto.proyecto_alquiler_vehiculos.Models.Empresa;
+import com.proyecto.proyecto_alquiler_vehiculos.Models.Vehiculo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

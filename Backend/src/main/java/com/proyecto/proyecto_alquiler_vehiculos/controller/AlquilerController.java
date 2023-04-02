@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.proyecto.proyecto_alquiler_vehiculos.Models.RegistroAlquiler;
+import com.proyecto.proyecto_alquiler_vehiculos.Repository.AlquilerRepository;
 
-import com.proyecto.proyecto_alquiler_vehiculos.models.RegistroAlquiler;
-import com.proyecto.proyecto_alquiler_vehiculos.repository.AlquilerRepository;
+
+
+
 
 @RestController
 @RequestMapping("/RentalsVenado")

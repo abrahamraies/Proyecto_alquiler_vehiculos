@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.proyecto.proyecto_alquiler_vehiculos.models.Imagen;
-import com.proyecto.proyecto_alquiler_vehiculos.repository.ImageRepository;
+import com.proyecto.proyecto_alquiler_vehiculos.Models.Imagen;
+import com.proyecto.proyecto_alquiler_vehiculos.Repository.ImageRepository;
 
 @Service
 public class ImagenService {

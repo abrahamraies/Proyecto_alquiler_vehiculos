@@ -1,4 +1,4 @@
-package com.proyecto.proyecto_alquiler_vehiculos.models;
+package com.proyecto.proyecto_alquiler_vehiculos.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

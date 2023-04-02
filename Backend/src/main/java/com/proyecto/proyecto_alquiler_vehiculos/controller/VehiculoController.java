@@ -20,11 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.proyecto.proyecto_alquiler_vehiculos.exceptions.ResourceNotFoundExceptions;
-import com.proyecto.proyecto_alquiler_vehiculos.models.Imagen;
-import com.proyecto.proyecto_alquiler_vehiculos.models.ResponseImagen;
-import com.proyecto.proyecto_alquiler_vehiculos.models.ResponseMensaje;
-import com.proyecto.proyecto_alquiler_vehiculos.models.Vehiculo;
-import com.proyecto.proyecto_alquiler_vehiculos.repository.VehiculoRepository;
+import com.proyecto.proyecto_alquiler_vehiculos.Models.*;
+
+import com.proyecto.proyecto_alquiler_vehiculos.Repository.*;
 import com.proyecto.proyecto_alquiler_vehiculos.service.ImagenService;
 
 
@@ -121,7 +119,7 @@ public class VehiculoController {
 	//#region Imagen
 	// Este metodo se encarga de cargar una imagen en su respectiva tabla
 	@PostMapping("/upload")
-	public ResponseEntity<ResponseMensaje> uploadFile(@RequestParam("file") MultipartFile file) {
+	public ResponseEntity<ResponseMensaje> uploadFile(@RequestParam MultipartFile file) {
 		String message = "";
 		try {
 		imagenid = storageService.store(file);
