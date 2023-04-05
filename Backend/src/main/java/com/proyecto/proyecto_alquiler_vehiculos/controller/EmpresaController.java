@@ -2,29 +2,21 @@ package com.proyecto.proyecto_alquiler_vehiculos.controller;
 
 import java.util.List;
 
-import com.proyecto.proyecto_alquiler_vehiculos.Repository.EmpresaRepository;
-import com.proyecto.proyecto_alquiler_vehiculos.Repository.VehiculoRepository;
+import com.proyecto.proyecto_alquiler_vehiculos.Repository.*;
 import com.proyecto.proyecto_alquiler_vehiculos.exceptions.ResourceNotFoundExceptions;
-import com.proyecto.proyecto_alquiler_vehiculos.Models.Empresa;
-import com.proyecto.proyecto_alquiler_vehiculos.Models.Vehiculo;
+import com.proyecto.proyecto_alquiler_vehiculos.Models.*;
 
+
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 
 
 
 @RestController
 @RequestMapping("/RentalsVenado/empresas")
-@CrossOrigin(origins = "http://localhost:14200")
+@CrossOrigin("http://localhost:14200")
 public class EmpresaController {
 
 
@@ -36,13 +28,13 @@ public class EmpresaController {
 
 	//Este metodo lista todos los vehiculos
 	@GetMapping("/lista")
-	public List<Empresa> listarClientes(){
+	public List<Empresa> listarEmpresas(){
 
 		return repositorio.findAll();
 	}
 
 	// Este método se encarga de obtener una empresa
-	@GetMapping("/ObtenerEmpresa/{id}")
+	@GetMapping("/obtenerEmpresa/{id}")
 	public ResponseEntity<Empresa> ObtenerEmpresa(@PathVariable Long id) {
 
 		Empresa empresa = repositorio.findById(id)
@@ -52,7 +44,7 @@ public class EmpresaController {
 	}
 
 	// Este método se encarga de obtener los vehiculos de una empresa
-	@GetMapping("/ObtenerVehiculos/{id}")
+	@GetMapping("/obtenerVehiculos/{id}")
 	public List<Vehiculo> obtenerVehiculos(@PathVariable Long id) {
 
 		repositorio.findById(id)

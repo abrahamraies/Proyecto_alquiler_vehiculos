@@ -2,21 +2,19 @@
   <div class="container">
     <div class="banner" style="width: 22%;">
     <h2 style="color:gold; margin-top: 2%; text-shadow: 2px 0 #000;">Ingresar</h2>
-    <form (ngSubmit)= "loginCliente()">
+    <form (ngSubmit)= "loginCliente()" class="formulario">
       <div>
         <input type="email" name="email" placeholder="Email" [(ngModel)]="cliente.correo">
-
       </div>
 
-      <div style="margin-bottom:10px ;">
+      <div>
         <input type="password" name="password" placeholder="Contraseña" [(ngModel)]="cliente.password">
 
       </div>
 
-      <div style="margin-bottom: 4%; ">
-
-        <button type="submit" class="btn btn-primary" style="margin-right: 10px ;">Ingresar</button>
-        <button type="submit" class="btn btn-secondary" (click)="registro()">Registrarse</button>
+      <div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <button type="submit" class="btn btn-secondary" style="background-color: green ;" (click)="registro()">Registrarse</button>
       </div>
     </form>
   </div>

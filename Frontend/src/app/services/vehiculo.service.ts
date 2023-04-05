@@ -9,7 +9,7 @@ import { Alquiler,Vehiculo } from '../interfaces/interfaces';
 })
 export class VehiculoService {
   //URL backend
-  private baseUrl = "http://localhost:18080/RentalsVenado";
+  private baseUrl = "http://localhost:8080/RentalsVenado";
 
 
   constructor(private httpClient : HttpClient) { }

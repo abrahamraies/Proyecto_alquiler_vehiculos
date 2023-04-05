@@ -2,3 +2,40 @@
   overflow-y: hidden;
   min-height: 70vh;
  }
+ .banner {
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  min-width: 200px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formulario label {
+  margin-bottom: 5px;
+}
+
+.formulario input[type="email"],
+.formulario input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.formulario button[type="submit"] {
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,30 @@
+header.masthead{
+  height: 100vh;
+  background-image: url("../../../assets/img/rentals.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.banner{
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  min-width: 300px;
+  min-height: 250px;
+  width: 400px;
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+}
+input {
+  margin: 0 10px;
+  padding: 5px;
+  border: none;
+  width: 50%;
+  margin-left: 30%;
+}
+

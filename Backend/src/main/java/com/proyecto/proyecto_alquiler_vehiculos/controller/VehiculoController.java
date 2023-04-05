@@ -47,7 +47,7 @@ public class VehiculoController {
 	}
 
 	// Este método se encarga de obtener un vehiculo seleccionado
-	@GetMapping("/ObtenerVehiculo/{id}")
+	@GetMapping("/obtenerVehiculo/{id}")
 	public ResponseEntity<Vehiculo> ObtenerVehiculo(@PathVariable Long id) {
 
 		Vehiculo vehiculo = repositorioV.findById(id)
@@ -72,7 +72,7 @@ public class VehiculoController {
 		vehiculo.setCategoria(nuevoVehiculo.getCategoria());
 		vehiculo.setPrecioalquiler(nuevoVehiculo.getPrecioalquiler());
 		vehiculo.setDisponible(nuevoVehiculo.isDisponible());
-		vehiculo.setImagen("http://localhost:18080/RentalsVenado/files/"+imagenid);
+		vehiculo.setImagen("http://localhost:8080/RentalsVenado/files/"+imagenid);
 
 		Vehiculo vehiculoActualizado = repositorioV.save(vehiculo);
 
@@ -80,7 +80,7 @@ public class VehiculoController {
 	}
 
 	// Este metodo se encarga de deshabilitar un vehiculo
-	@GetMapping("/EliminarVehiculo/{id}")
+	@GetMapping("/eliminarVehiculo/{id}")
 	public ResponseEntity<Vehiculo> EliminarVehiculo(@PathVariable Long id) {
 
 		Vehiculo vehiculo = repositorioV.findById(id)
@@ -94,7 +94,7 @@ public class VehiculoController {
 	}
 
 	// Este metodo se encarga de habilitar un vehiculo
-	@GetMapping("/HabilitarVehiculo/{id}")
+	@GetMapping("/habilitarVehiculo/{id}")
 	public ResponseEntity<Vehiculo> HabilitarVehiculo(@PathVariable Long id) {
 
 		Vehiculo vehiculo = repositorioV.findById(id)
@@ -108,10 +108,10 @@ public class VehiculoController {
 	}
 
 	// Este metodo se encarga de registrar un nuevo vehiculo
-	@PostMapping("/RegistrarVehiculo")
+	@PostMapping("/registrarVehiculo")
 	public Vehiculo CrearVehiculo(@RequestBody Vehiculo nuevoVehiculo) {
 		nuevoVehiculo.setDisponible(true);
-		nuevoVehiculo.setImagen("http://localhost:18080/RentalsVenado/files/"+imagenid);
+		nuevoVehiculo.setImagen("http://localhost:8080/RentalsVenado/files/"+imagenid);
 
 		return repositorioV.save(nuevoVehiculo);
 	}

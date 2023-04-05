@@ -3,12 +3,12 @@
   <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
   <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Registro de alquiler</h3>
   <form (ngSubmit)= "onSubmit()" #alquilerForm = "ngForm">
-    <div class="row" style="text-shadow: 2px 0 #000; color: gold">
+    <div class="form-row justify-content-center" style="text-shadow: 2px 0 #000; color: gold">
       <div class="col">
         <div class="form-group">
           <label>Fecha de Inicio de alquiler: </label>
           <input type="date"
-          style="width: 30%; margin-left:auto; margin-right: auto;"
+          style="border-radius: 50px"
           class="form-control"
           min="currentDate"
           max="2023-01-01"
@@ -28,7 +28,7 @@
         <div class="form-group">
           <label>Fecha de fin de alquiler: </label>
           <input type="date"
-          style="width: 30%; margin-left:auto; margin-right: auto;"
+          style="border-radius: 50px"
           class="form-control"
           min="{{alquiler.fechainicio}}"
           max="2023-01-01"
@@ -47,6 +47,7 @@
         <br>
       </div>
     </div>
+    <br>
     <h3 class="text-center" style="text-shadow: 2px 0 #000; color: gold">Vehiculo Seleccionado</h3>
     <div class="row" *ngIf="vehiculos">
       <div class="col">
