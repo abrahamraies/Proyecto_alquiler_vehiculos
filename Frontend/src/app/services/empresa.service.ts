@@ -14,7 +14,7 @@ export class EmpresaService {
 
   //Este metodo obtiene una solo empresa
   obtenerEmpresa(id:number):Observable<Empresa>{
-    return this.httpClient.get<Empresa>(`${this.baseUrl}/empresas/ObtenerEmpresa/${id}`);
+    return this.httpClient.get<Empresa>(`${this.baseUrl}/empresas/obtenerEmpresa/${id}`);
   }
 
   //Este metodo actualiza la empresa

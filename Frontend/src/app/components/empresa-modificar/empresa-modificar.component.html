@@ -1,142 +1,205 @@
 <header class="masthead">
+</header>
   <div class="banner">
-    <h1 style="text-shadow: 2px 0 #000; color:gold">Rentals Venado</h1>
-    <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000;">Registro de empresa</h3>
-    <form (ngSubmit)= "modificarEmpresa()" #alquilerForm = "ngForm" style="margin-left: 2%; margin-right: 2%;">
-      <div class="row" style="text-shadow: 2px 0 #000; color: gold" *ngIf="empresaUtilizada">
+    <h1 style="text-shadow: 2px 0 #000; color: gold">Rentals Venado</h1>
+    <h3 class="text-center" style="color: gold; text-shadow: 2px 0 #000">
+      Registro de empresa
+    </h3>
+    <form
+      (ngSubmit)="modificarEmpresa()"
+      #alquilerForm="ngForm"
+      style="margin-left: 2%; margin-right: 2%; max-width: 100%;"
+    >
+      <div
+        class="row"
+        style="text-shadow: 2px 0 #000; color: gold"
+        *ngIf="empresaUtilizada"
+      >
         <div class="col">
           <div class="form-group">
             <label>Nombre: </label>
-            <input type="text"
-            class="form-control"
-            id="nombre"
-            [(ngModel)] = "empresaUtilizada.nombre"
-            name="nombre"
-            required
-            minlength="4"
-            maxlength="20"
-            placeholder="Ingresa tu nombre"
-            #nombre = "ngModel"
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              [(ngModel)]="empresaUtilizada.nombre"
+              name="nombre"
+              required
+              minlength="4"
+              maxlength="20"
+              placeholder="Ingresa tu nombre"
+              #nombre="ngModel"
+            />
+            <div
+              class="text text-danger"
+              *ngIf="nombre.invalid && nombre.touched"
             >
-            <div class="text text-danger" *ngIf= "nombre.invalid && nombre.touched" >
-              <div *ngIf= "nombre.hasError('required') ||
-               nombre.hasError('minlength')">
+              <div
+                *ngIf="
+                  nombre.hasError('required') || nombre.hasError('minlength')
+                "
+              >
                 Ingrese un nombre valido (minimo 4 letras)
               </div>
             </div>
           </div>
-          <br>
+          <br />
           <div class="form-group">
             <label>Apellido: </label>
-            <input type="text"
-            class="form-control"
-            id="apellido"
-            [(ngModel)] = "empresaUtilizada.apellido"
-            name="apellido"
-            required
-            minlength="2"
-            maxlength="20"
-            placeholder="Ingresa tu apellido"
-            #apellido = "ngModel"
+            <input
+              type="text"
+              class="form-control"
+              id="apellido"
+              [(ngModel)]="empresaUtilizada.apellido"
+              name="apellido"
+              required
+              minlength="2"
+              maxlength="20"
+              placeholder="Ingresa tu apellido"
+              #apellido="ngModel"
+            />
+            <div
+              class="text text-danger"
+              *ngIf="apellido.invalid && apellido.touched"
             >
-            <div class="text text-danger" *ngIf= "apellido.invalid && apellido.touched" >
-              <div *ngIf= "apellido.hasError('required') ||
-               apellido.hasError('minlength')">
+              <div
+                *ngIf="
+                  apellido.hasError('required') ||
+                  apellido.hasError('minlength')
+                "
+              >
                 Ingrese un apellido valido (minimo 2 letras)
               </div>
             </div>
           </div>
-          <br>
+          <br />
           <div class="form-group">
             <label>Razon Social: </label>
-            <input type="text"
-            placeholder="Ingresa la razon social de la empresa"
-            required
-            class="form-control"
-            id="razonsocial"
-            [(ngModel)] = "empresaUtilizada.razonsocial"
-            name="razonsocial"
-            required
-            minlength="8"
-            maxlength="20"
-            #razonsocial = "ngModel">
-            <div class="text text-danger" *ngIf= "razonsocial.invalid && razonsocial.touched" >
-              <div *ngIf= "razonsocial.hasError('required') ||
-              razonsocial.hasError('minlength')">
+            <input
+              type="text"
+              placeholder="Ingresa la razon social de la empresa"
+              required
+              class="form-control"
+              id="razonsocial"
+              [(ngModel)]="empresaUtilizada.razonsocial"
+              name="razonsocial"
+              required
+              minlength="8"
+              maxlength="20"
+              #razonsocial="ngModel"
+            />
+            <div
+              class="text text-danger"
+              *ngIf="razonsocial.invalid && razonsocial.touched"
+            >
+              <div
+                *ngIf="
+                  razonsocial.hasError('required') ||
+                  razonsocial.hasError('minlength')
+                "
+              >
                 Ingrese una razon social valida (minimo 8 letras)
               </div>
             </div>
           </div>
-          <br>
+          <br />
         </div>
         <div class="col">
           <div class="form-group">
             <label>Cuit/Cuil: </label>
-            <input type="text"
-            placeholder="Ingresa tu cuit/cuil"
-            class="form-control"
-            id="cuit"
-            [(ngModel)] = "empresaUtilizada.cuit"
-            name="cuit"
-            required
-            minlength="11"
-            maxlength="13"
-            #cuit = "ngModel">
-            <div class="text text-danger" *ngIf= "cuit.invalid && cuit.touched" >
-              <div *ngIf= "cuit.hasError('required') ||
-               cuit.hasError('minlength')">
+            <input
+              type="text"
+              placeholder="Ingresa tu cuit/cuil"
+              class="form-control"
+              id="cuit"
+              [(ngModel)]="empresaUtilizada.cuit"
+              name="cuit"
+              required
+              minlength="11"
+              maxlength="13"
+              #cuit="ngModel"
+            />
+            <div class="text text-danger" *ngIf="cuit.invalid && cuit.touched">
+              <div
+                *ngIf="cuit.hasError('required') || cuit.hasError('minlength')"
+              >
                 Ingrese un numero de cuit/cuil valido valido (minimo 11 numeros)
               </div>
             </div>
           </div>
-          <br>
+          <br />
           <div class="form-group">
             <label>Celular: </label>
-            <input type="tel"
-            placeholder="Ingresa tu celular con codigo de area"
-            class="form-control"
-            id="celular"
-            [(ngModel)] = "empresaUtilizada.celular"
-            name="celular"
-            required
-            minlength="8"
-            maxlength="20"
-            #celular = "ngModel">
-            <div class="text text-danger" *ngIf= "celular.invalid && celular.touched" >
-              <div *ngIf= "celular.hasError('required') ||
-               celular.hasError('minlength')">
+            <input
+              type="tel"
+              placeholder="Ingresa tu celular con codigo de area"
+              class="form-control"
+              id="celular"
+              [(ngModel)]="empresaUtilizada.celular"
+              name="celular"
+              required
+              minlength="8"
+              maxlength="20"
+              #celular="ngModel"
+            />
+            <div
+              class="text text-danger"
+              *ngIf="celular.invalid && celular.touched"
+            >
+              <div
+                *ngIf="
+                  celular.hasError('required') || celular.hasError('minlength')
+                "
+              >
                 Ingrese un numero de celular valido (minimo 8 numeros)
               </div>
             </div>
           </div>
-          <br>
+          <br />
           <div class="form-group">
             <label>Contraseña: </label>
-            <input type="text"
-            placeholder="Ingresa tu contraseña"
-            class="form-control"
-            id="password"
-            [(ngModel)] = "empresaUtilizada.password"
-            name="password"
-            required
-            minlength="4"
-            maxlength="50"
-            #password = "ngModel">
-            <div class="text text-danger" *ngIf= "password.invalid && password.touched" >
-              <div *ngIf= "password.hasError('required') ||
-              password.hasError('minlength')">
+            <input
+              type="text"
+              placeholder="Ingresa tu contraseña"
+              class="form-control"
+              id="password"
+              [(ngModel)]="empresaUtilizada.password"
+              name="password"
+              required
+              minlength="4"
+              maxlength="50"
+              #password="ngModel"
+            />
+            <div
+              class="text text-danger"
+              *ngIf="password.invalid && password.touched"
+            >
+              <div
+                *ngIf="
+                  password.hasError('required') ||
+                  password.hasError('minlength')
+                "
+              >
                 Ingrese una contraseña valida (minimo 4 letras/numeros)
               </div>
             </div>
           </div>
-          <br>
+          <br />
         </div>
-        <div>
-        </div>
+        <div></div>
       </div>
-      <button class="btn btn-success"
-      style="float: right; margin-bottom: 2%; margin-right: 2%;" [disabled]= "!alquilerForm.form.valid">
-      Confirmar modificacion</button>
+      <button
+        class="btn btn-success"
+        style="
+          float: right;
+          margin-bottom: 2%;
+          margin-right: 2%;
+          border-radius: 50px;
+        "
+        [disabled]="!alquilerForm.form.valid"
+      >
+        Confirmar modificacion
+      </button>
     </form>
   </div>
-</header>
+

@@ -1,0 +1,14 @@
+.banner{
+  border-radius: 50px;
+}
+@media (min-width: 992px) {
+  header.masthead{
+    height: 100vh;
+    background-image: url("../../../assets/img/rentals.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .banner{
+    height: auto;
+  }
+}

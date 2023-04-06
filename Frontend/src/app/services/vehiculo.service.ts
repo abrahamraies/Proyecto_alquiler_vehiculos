@@ -20,11 +20,11 @@ export class VehiculoService {
   }
   //Este metodo devuleve los vehiculos
   obtenerListaVehiculosEmpresa(id:number): Observable<Vehiculo[]>{
-    return this.httpClient.get<Vehiculo[]>(`${this.baseUrl}/empresas/ObtenerVehiculos/${id}`);
+    return this.httpClient.get<Vehiculo[]>(`${this.baseUrl}/empresas/obtenerVehiculos/${id}`);
   }
   //Este metodo obtiene un solo vehiculo (el seleccionado)
   obtenerVehiculo(id:number):Observable<Vehiculo>{
-    return this.httpClient.get<Vehiculo>(`${this.baseUrl}/ObtenerVehiculo/${id}`);
+    return this.httpClient.get<Vehiculo>(`${this.baseUrl}/obtenerVehiculo/${id}`);
   }
   //Este metodo actualiza el vehiculo
   actualizarVehiculo(id:number,vehiculo:Vehiculo):Observable<object>{
@@ -33,22 +33,22 @@ export class VehiculoService {
 
   //Este metodo actualiza el vehiculo a no disponible
   deshabilitarVehiculo(id:number):Observable<Vehiculo>{
-    return this.httpClient.get<Vehiculo>(`${this.baseUrl}/EliminarVehiculo/${id}`);
+    return this.httpClient.get<Vehiculo>(`${this.baseUrl}/eliminarVehiculo/${id}`);
    }
 
    //Este metodo actualiza el vehiculo a disponible
   habilitarVehiculo(id:number):Observable<Vehiculo>{
-    return this.httpClient.get<Vehiculo>(`${this.baseUrl}/HabilitarVehiculo/${id}`);
+    return this.httpClient.get<Vehiculo>(`${this.baseUrl}/habilitarVehiculo/${id}`);
    }
 
   //Este metodo registra el alquiler de un vehiculo
    registrarAlquiler(alquiler:Alquiler):Observable<object>{
-     return this.httpClient.post(`${this.baseUrl}/RegistrarAlquiler`,alquiler)
+     return this.httpClient.post(`${this.baseUrl}/registrarAlquiler`,alquiler)
    }
 
    // Este metodo crea el vehiculo
    crearVehiculo(vehiculo:Vehiculo):Observable<object>{
-    return this.httpClient.post(`${this.baseUrl}/RegistrarVehiculo`,vehiculo)
+    return this.httpClient.post(`${this.baseUrl}/registrarVehiculo`,vehiculo)
    }
 
    //Subir una imagen

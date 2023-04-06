@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from 'src/app/interfaces/interfaces';
@@ -15,7 +16,7 @@ export class EmpresaModificarComponent implements OnInit {
   empresaUtilizada:Empresa = new Empresa();
 
   // Invocamos los servicios a utilizar por el componente
-  constructor(private empresaService:EmpresaService,private loginService:AuthService) { }
+  constructor(private empresaService:EmpresaService,private loginService:AuthService, private router:Router) { }
 
   // Llamamos al metodo obtener empresa
   ngOnInit(): void {
@@ -38,6 +39,7 @@ export class EmpresaModificarComponent implements OnInit {
     this.empresaService.actualizarEmpresa(this.empresaUtilizada.idempresa,this.empresaUtilizada).subscribe();
 
     swal.fire("Tu empresa ha sido modificada con exito!", "", "success");
+    this.router.navigate(['']);
   }
 
 }

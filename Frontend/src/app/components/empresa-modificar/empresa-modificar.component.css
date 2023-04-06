@@ -1,0 +1,18 @@
+.banner {
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  min-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+header.masthead{
+  height: 100vh;
+  background-image: url("../../../assets/img/rentals.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+}
