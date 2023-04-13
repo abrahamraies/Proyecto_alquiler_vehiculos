@@ -6,8 +6,8 @@ import com.proyecto.proyecto_alquiler_vehiculos.Models.RegistroAlquiler;
 import com.proyecto.proyecto_alquiler_vehiculos.Repository.AlquilerRepository;
 
 @RestController
+@CrossOrigin("https://rentals-venado.web.app")
 @RequestMapping("/RentalsVenado")
-@CrossOrigin("http://localhost:14200")
 public class AlquilerController {
 
     @Autowired

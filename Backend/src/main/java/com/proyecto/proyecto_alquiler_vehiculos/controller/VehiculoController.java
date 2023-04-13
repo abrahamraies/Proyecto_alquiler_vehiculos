@@ -27,8 +27,8 @@ import com.proyecto.proyecto_alquiler_vehiculos.service.ImagenService;
 
 
 @RestController
+@CrossOrigin(origins = "https://rentals-venado.web.app")
 @RequestMapping("/RentalsVenado")
-@CrossOrigin(origins = "http://localhost:14200")
 public class VehiculoController {
 
 	@Autowired

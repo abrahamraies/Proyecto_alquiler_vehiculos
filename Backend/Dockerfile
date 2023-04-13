@@ -1,6 +1,4 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
-ARG JAR_FILE=target/*.jar
-WORKDIR /opt/app
-COPY ${JAR_FILE} app.jar
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+FROM amazoncorretto:17-alpine-jdk
+LABEL org.opencontainers.image.authors="AR"
+COPY target/proyecto_alquiler_vehiculos-0.0.1-SNAPSHOT ar-app.jar
+ENTRYPOINT ["java","-jar","/ar-app.jar"]

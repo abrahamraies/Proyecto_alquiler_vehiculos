@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @RestController
+@CrossOrigin("https://rentals-venado.web.app")
 @RequestMapping("/RentalsVenado/empresas")
-@CrossOrigin("http://localhost:14200")
 public class EmpresaController {
 
 

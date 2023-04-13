@@ -10,8 +10,8 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin("https://rentals-venado.web.app")
 @RequestMapping("/RentalsVenado/clientes")
-@CrossOrigin("http://localhost:14200")
 public class ClienteController {
 	
 	private final ClienteRepository repositorio;
