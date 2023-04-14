@@ -1,2 +1,2 @@
 version: 1
-dockerfile: Backend/Dockerfile
+dockerfile: Backend\Dockerfile
